@@ -1,0 +1,10 @@
+
+.nav{
+        display: flex;
+        justify-content: space-between;
+        font-size: large;
+        background-color:rgba(27, 26, 25, 0.5) ;
+        padding-left: 12px;
+        padding-right: 12px;
+        
+}
