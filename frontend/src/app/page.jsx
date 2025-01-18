@@ -174,7 +174,7 @@ const page = () => {
               <div className='flex'>
 
                 <div className='w-[250px]   h-[100px] '>
-                  <h1 className='ml-14 mt-9 text-xl font-semibold text-gray-800'>Top University</h1>
+                  <h1 className='ml-14 mt-9 text-xl md:text-3xl hover:text-orange-500 font-semibold text-gray-700'>Top University</h1>
                   <p className='ml-14 pt-4  text-gray-400 text-sm font-medium'>College ranked based on real data</p>
 
                 </div>
@@ -192,12 +192,12 @@ const page = () => {
               <div className='flex'>
 
                 <div className='w-[250px]   h-[100px] '>
-                  <h1 className='ml-14 mt-9 text-xl font-semibold text-gray-800'>Top College</h1>
+                  <h1 className='ml-14 mt-9 text-xl md:text-3xl hover:text-orange-500 font-semibold text-gray-700'>Top College</h1>
                   <p className='ml-14 pt-4  text-gray-400 text-sm font-medium'>College ranked based on real data</p>
 
                 </div>
                 <div className='h-[100px]'>
-                  <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="\—Pngtree—illustration of graduate college student_6293725.png" alt="" />
+                  <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="10088-removebg-preview.png" alt="" />
                 </div>
 
               </div>
@@ -210,12 +210,12 @@ const page = () => {
               <div className='flex'>
 
                 <div className='w-[250px]   h-[100px] '>
-                  <h1 className='ml-14 mt-9 text-xl font-semibold text-gray-800'>Top School</h1>
+                  <h1 className='ml-14 mt-9 text-xl md:text-3xl hover:text-orange-500 font-semibold text-gray-700'>Top School</h1>
                   <p className='ml-14 pt-4  text-gray-400 text-sm font-medium'>School ranked based on real data</p>
 
                 </div>
                 <div className='h-[100px]'>
-                  <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="\—Pngtree—illustration of graduate college student_6293725.png" alt="" />
+                  <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="Na_Nov_28-removebg-preview.png" alt="" />
                 </div>
 
               </div>
@@ -318,76 +318,7 @@ const page = () => {
             </div>
     
 
-        {/* <hr className='my-5 flex' />
-      <div className='md:ml-40 md:w-[77%] my-5'>
-        <h1 className='text-2xl mb-4 text-gray-900 font-semibold '>Top 10 Colleges</h1>
-        <div className='flex justify-start border-2 border-gray-200 py-[9px] font-semibold items-start'>
-          <div className='w-[90px] ml-2 flex justify-start items-center'>
-            <h1 className='text-gray-900'>Rank</h1>
-          </div>
-          <div className='w-[390px] flex justify-start items-center'>
-            <h1 className='text-gray-900 '>College</h1>
-          </div>
-          <div className='w-[180px]  flex justify-start items-center'>
-            <h1 className='text-gray-900 pl-8'>Ranking</h1>
-          </div>
-          <div className='w-[150px] flex justify-center items-center'>
-            <h1 className='text-gray-900 pl-8'>Cutoff</h1>
-          </div>
-          <div className='w-[230px] flex justify-start ml-4 items-center'>
-            <h1 className='text-gray-900 pl-8'>Application Deadline</h1>
-          </div>
-          <div className='w-[100px] flex justify-start items-center'>
-            <h1 className='text-gray-900 pl-8'>Fee</h1>
-          </div>
-        </div>
-        {
-
-
-          listing.map((item, index) => {
- */}
-
-        {/* //  return      <div className={`flex flex-wrap justify-start items-center border-x-[1px] h-[75px] border-b-[1px] border-gray-200 `}>
-      //         <div className='w-[80px] flex justify-start items-center ml-4'>
-      //           <h1 className='text-gray-500'>#{index + 1}</h1>
-      //         </div>
-      //         <div className='w-[60px] flex   items-start'>
-      //           <div className='flex justify-center items-center h-[45px] w-[45px] rounded-[50%] border '>
-      //             <img className='h-[30px] w-[30px] rounded-md' src={item.image1} alt="" />
-      //           </div>
-      //         </div>
-      //         <div className='w-[340px] flex h-[75px] items-center justify-center '>
-      //           <div className='w-[340px] flex-col items-center justify-center'>
-      //             <p className='text-black text-[16px] font-semibold'>{item.collegeName}</p>
-      //             <p className='text-[14px] text-gray-600 font-normal'>{item.collegeAddress}</p>
-      //           </div>
-      //         </div>
-      //         <div className='flex justify-center items-center w-[45px]'>
-      //           <img src="\the_week1569844170.webp" alt="" />
-      //         </div>
-      //         <div className='w-[180px] flex justify-start items-center'>
-      //           <h1 className='text-gray-500'>{item.Ranking}</h1>
-      //         </div>
-      //         <div className='w-[120px] flex justify-center items-center'>
-      //           <h1 className='text-gray-500'>{item.cutoff}</h1>
-      //         </div>
-      //         <div className='w-[200px] flex ml-4 items-center'>
-      //           <h1 className='text-gray-500 '>{item.ApplicationDeadline}</h1>
-      //         </div>
-      //         <div className='w-[100px] flex-col justify-center items-center'>
-      //           {
-      //             (item.fee === 0) ? (<h1 className='text-gray-500'>-</h1>)
-      //               : (<h1 className='text-gray-800 inline-block font-semibold'><FaIndianRupeeSign className='inline-block text-md' />{item.fee}</h1>)
-      //           }
-      //           <p className='text-gray-500 text-[14px] font-normal'>
-      //             1st Year Fee
-      //           </p>
-
-      //         </div>
-      //       </div>
-      //     })
-      //   }
-      // </div> */}
+      
         <hr className=' mt-4' />
         <div className='md:ml-40 my-5'>
           <h1 className='text-2xl mb-4 text-gray-900 font-semibold '>Select Your Study Goal in School</h1>
