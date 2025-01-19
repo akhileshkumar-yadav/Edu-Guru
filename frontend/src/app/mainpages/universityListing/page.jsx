@@ -224,7 +224,7 @@ const UniversityListing = () => {
                                     <td className="pr-4 py-2  max-w-[290px] min-w-[250px] text-sm md:text-[18px]  font-[550] text-[#84c3d3] "><Link href={'/mainpages/viewUniversity/' + item._id}> {item.universityName} <h1 className='text-sm font-normal text-gray-600 md:overflow-auto overflow-hidden'>{item.universityAddress} </h1> </Link></td>
 
                                     <td className="px-4 py-2 max-w-[200px] text-gray-500 mt-3 md:text-[18px] text-[17px] ">{item.courses}</td>
-                                    <td className="px-4 py-2 text-gray-500 max-w-[120px] ">{item.universityDetail}</td>
+                                    <td className="px-4 py-2 text-lg text-gray-500 max-w-[120px] ">{item.universityDetail}</td>
                                 </tr>
                             })}
                     </tbody>

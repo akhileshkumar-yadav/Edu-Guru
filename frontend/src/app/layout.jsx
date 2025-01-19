@@ -3,7 +3,7 @@ import "./globals.css";
 import Footer from "./footer"
 import { Toaster } from "react-hot-toast";
 // import Navbar from "./navbar";
-import { AppProvider } from "../context/appcontext";
+// import { AppProvider } from "../context/appcontext";
 
 
 export default function RootLayout({ children }) {

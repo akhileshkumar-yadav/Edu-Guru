@@ -21,8 +21,8 @@ const LoginSchema = Yup.object().shape({
     .matches(/[!@#$%^&*]/, 'Password must contain at least one spacial letter')
     .required('password is required'),
 })
-const Login = () => {
-  const {setLoggedIn, setCurrentUser} = useAppContext();
+const AdminLogin = () => {
+  // const {setLoggedIn, setCurrentUser} = useAppContext();
   const router = useRouter()
   const LoginForm = useFormik({
     initialValues: {
@@ -32,14 +32,14 @@ const Login = () => {
     onSubmit: (values, {resetForm}) => {
       console.log(values)
       
-      axios.post('http://localhost:5000/user/authenticate', values)
+      axios.post('http://localhost:5000/admin/authenticate', values)
       .then((response) => {
         console.log(response.status)
-        localStorage.setItem('user', JSON.stringify(response.data))
-        setLoggedIn(true)
+        // localStorage.setItem('user', JSON.stringify(response.data))
+        // setLoggedIn(true)
         resetForm()
         toast.success('Login successfully')
-        router.push('/')
+        router.push('/admin/dashboard')
 
       }).catch((err) => {
         console.log(err)
@@ -272,4 +272,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default AdminLogin

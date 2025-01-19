@@ -14,12 +14,15 @@ const navbar = () => {
           <div className='lg:absolute lg:left-[10px] flex justify-start items-center ml-auto '>
             <Link href="/" className="shrink-0 ">
               <img
-                src="\logo2.png"
+                src="\A2.png"
                 alt="logo"
                 className="lg:w-[250px] w-[100px] h-[50px] ml-5 md:h-[80px] "
               />
             </Link>
           </div>
+
+          {/* dropdown */}
+
           {/* <div className='lg:absolute lg:left-[250px] hidden md:flex items-center ml-auto space-x-8'>
         <div className='group max-lg:border-b flex-col max-lg:px-3 max-lg:py-3 relative'>
           <h1 className='text-orange-600 text-sm font-semibold inline-block '><GoGoal className='inline-block ml-2 font-semibold w-6' />Select Goal</h1>
@@ -239,7 +242,7 @@ const navbar = () => {
                   />
                 </svg>
               </Link>
-            {/* )} */}
+              {/* )}  */}
           </div>
         </section>
         <div className="flex flex-wrap justify-center px-10 py-3 relative">

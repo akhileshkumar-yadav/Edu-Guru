@@ -1,4 +1,4 @@
-// "use client"
+
 // const { useRouter } = require("next/navigation");
 // const { createContext, useState, useContext } = require("react");
 
@@ -10,6 +10,7 @@
 //   const [currentUser, setCurrentUser] = useState(
 //     JSON.parse(localStorage.getItem("user"))
 //   );
+  
 
 //   const [loggedIn, setLoggedIn] = useState(currentUser !== null);
 

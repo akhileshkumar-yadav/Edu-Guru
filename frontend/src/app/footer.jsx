@@ -185,7 +185,7 @@ const footer = () => {
                     <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                   </svg>
                 </span>
-                topFiveAddGuru@gmail.com
+                topFiveEduGuru@gmail.com
               </p>
               <p className="mb-4 flex items-center justify-center md:justify-start">
                 <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
@@ -227,7 +227,7 @@ const footer = () => {
          
             <Link href="/" className="shrink-0 ">
               <img
-                src="\logo2.png"
+                src="\A2.png"
                 alt="logo"
                 className="lg:w-[250px] w-[100px] h-[50px] ml-5 md:h-[80px] "
               />

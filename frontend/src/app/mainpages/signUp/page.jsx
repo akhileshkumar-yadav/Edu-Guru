@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 // import classes from './Signup.module.css'
-import { Formik, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import toast from 'react-hot-toast'
 import axios from 'axios'
