@@ -105,7 +105,7 @@ const UniversityListing = () => {
                     </div>
 
                 </Slider>
-                <div className='absolute lg:top-[15%] md:top-[10%] top-[5%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
+                <div className='absolute lg:top-[10%] md:top-[10%] top-[5%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
                     <div className='flex justify-center items-center bg-transparent'>
                         <h1 className=' text-3xl lg:hidden text-white font-semibold '>Find Top University in india</h1>
                         <div className='lg:text-2xl hidden lg:block text-md text-white font-semibold '>
@@ -231,16 +231,17 @@ const UniversityListing = () => {
                 </table>
             </div>
 
-            <hr className='my-3' />
+            <hr className='my-6' />
 
             {/*  card */}
-            <h1 className='text-3xl my-3 text-gray-900 font-semibold md:mx-36'>Top Five University</h1>
-            <div className='md:mx-36  lg:max-w-[80%]'>
-                <div className='flex overflow-x-auto  gap-4'>
+            <div className='md:mx-36  border lg:max-w-[80%]'>
+            <h1 className='text-3xl my-3  text-gray-900 font-semibold md:mx-7'>Top Five University</h1>
+            <div className=' mb-3 px-3 lg:max-w-[100%]'>
+                <div className='flex overflow-x-auto  gap-6'>
                     {
                         card.map((item, index) => {
                             if(index<5){
-                        return  <div className=" flex-col  min-h-[380px] border min-w-[340px] rounded-md mb-3 gap-4">
+                        return  <div className=" flex-col  min-h-[410px] border min-w-[340px] rounded-md mb-3 gap-4">
                         <div className='w-[full] relative  h-[130px] rounded-md'>
                             {/* background image */}
                             <img className='w-[340px] h-[140px] rounded-t-md object-cover' src={item.image2} alt="" />
@@ -295,6 +296,8 @@ const UniversityListing = () => {
                     )}
                 </div>
             </div>
+            </div>
+            <hr className='my-5' />
         </div>
     )
 }

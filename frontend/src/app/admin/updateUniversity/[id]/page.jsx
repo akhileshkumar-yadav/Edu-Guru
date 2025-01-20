@@ -4,6 +4,7 @@ import { Formik, useFormik } from 'formik'
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import { useParams, useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 
 const Update = () => {
     const { id } = useParams()
@@ -27,7 +28,7 @@ const Update = () => {
         axios.put('http://localhost:5000/admin/adduniversity/updateuniversity/' + id, values)
             .then((response) => {
                 toast.success('form updated successfully')
-                // router.push('/manageListing')
+                router.push('/admin/dashboard')
 
             }).catch((err) => {
                 console.log(err)

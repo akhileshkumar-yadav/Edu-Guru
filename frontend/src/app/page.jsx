@@ -13,6 +13,7 @@ import { RiFindReplaceLine } from "react-icons/ri";
 import { TypeAnimation } from 'react-type-animation';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import dynamic from "next/dynamic";
 
 const page = () => {
 
@@ -53,6 +54,9 @@ const page = () => {
     autoplaySpeed: 2000,
     cssEase: "linear"
   };
+  const MapComponent = dynamic(() => import("./mainpages/GoogleMap/page"), {
+    ssr: false, // Disable server-side rendering for Google Maps
+  });
   const fetchRoadmapListing = () => {
     axios.get('http://localhost:5000/admin/adduniversity/getall')
       .then((result) => {
@@ -124,7 +128,7 @@ const page = () => {
             </div>
 
           </Slider>
-          <div className='absolute  md:top-[10%] top-[3%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
+          <div className='absolute  md:top-[7%] top-[3%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
             <div className='flex justify-center items-center bg-transparent'>
               <h1 className=' text-3xl lg:hidden text-white font-semibold '>Find Top University in india</h1>
               <div className='lg:text-2xl hidden lg:block text-md text-white font-semibold '>
@@ -440,7 +444,7 @@ const page = () => {
     </div>
     {/* End Icon Blocks */}
 
-
+    <MapComponent /> 
       <Footer />
     </div>
 

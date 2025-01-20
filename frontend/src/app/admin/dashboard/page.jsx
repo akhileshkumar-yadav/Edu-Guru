@@ -29,7 +29,7 @@ const Dashbord = () => {
     }, [])
 
     const deleteUser = (id) => {
-        axios.delete(`http://localhost:5000/admin/user/delete/` + id)
+        axios.delete(`http://localhost:5000/user/delete/` + id)
             .then((result) => {
                 toast.success('user deleted successfully')
                 fetchUserList()

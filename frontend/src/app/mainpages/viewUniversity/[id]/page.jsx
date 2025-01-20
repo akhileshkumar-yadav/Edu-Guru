@@ -53,19 +53,19 @@ const ViewUniversity = () => {
 
     //   }
 
-    const fetchUserData = async () => {
-        const res = await fetch('http://localhost:3000/college/getbyid/' + id);
-        console.log(res.status);
-        if (res.status === 200) {
-            const data = await res.json();
-            console.log(data);
-            setCollegeList(data);
-        }
-    };
+    // const fetchUserData = async () => {
+    //     const res = await fetch('http://localhost:3000/college/getbyid/' + id);
+    //     console.log(res.status);
+    //     if (res.status === 200) {
+    //         const data = await res.json();
+    //         console.log(data);
+    //         setCollegeList(data);
+    //     }
+    // };
 
-    useEffect(() => {
-        fetchUserData();
-    }, []);
+    // useEffect(() => {
+    //     fetchUserData();
+    // }, []);
 
     //   const [reviews, setreviews] = useState([])
 
@@ -381,3 +381,8 @@ const ViewUniversity = () => {
 }
 
 export default ViewUniversity
+
+
+
+
+// AIzaSyD36yH9dndofDSRPd10A6Qjex7KTgg2KPg
