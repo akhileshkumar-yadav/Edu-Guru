@@ -5,6 +5,10 @@ import { FaIndianRupeeSign } from "react-icons/fa6";
 import { RiFindReplaceLine } from "react-icons/ri";
 import StarRatings from 'react-star-ratings';
 import classess from './viewuni.module.css'
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import dynamic from "next/dynamic";
 
 
 const ViewUniversity = () => {
@@ -12,11 +16,32 @@ const ViewUniversity = () => {
     const [universityList, setUniversityList] = useState([]);
     const [filterListing, setFilterListing] = useState([])
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isReplaced, setIsReplaced] = useState(false);
+
+    const handleButtonClick = () => {
+        setIsReplaced((prevState) => !prevState);
+         // Toggle between true and false
+    };
 
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
     };
 
+
+
+    const containerStyle = {
+        position: 'absolute',
+        top: '50%',
+        left: '25%',
+        width: "50%",
+        height: "400px",
+    };
+
+    // Default coordinates (example: India Gate, Delhi)
+    const defaultCenter = {
+        lat: 26.8740,
+        lng: 81.0209,
+    };
     //  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
     //      const reviewRef = useRef();
     //      const [rating, setRating] = useState(3);
@@ -180,7 +205,55 @@ const ViewUniversity = () => {
 
                         </div>
                     </div>
-                    <div className='flex mr-[7%] mt-[3%]  text-white '>Lorem ipsum dolor sit amet.</div>
+                    {/* google map add */}
+
+                    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+                        {!isReplaced ? (
+                            <button
+                                onClick={handleButtonClick}
+                                style={{
+                                    padding: '15px 20px',
+                                    fontSize: '16px',
+                                    backgroundColor: '#4396f3',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '5px',
+                                    cursor: 'pointer',
+                                    marginRight:"40px",
+
+                                }}
+                            >
+                                <FontAwesomeIcon icon={faLocationDot} />
+                                {/* <FontAwesomeIcon icon="fa-solid fa-location-crosshairs" /> */}
+                            </button>
+                        ) : (
+                            <div
+                                style={{
+                                    marginTop: '20px',
+                                    padding: '15px',
+                                    border: '1px solid #ccc',
+                                    borderRadius: '5px',
+                                    backgroundColor: '#f9f9f9',
+                                    // position:'relative'
+                                }}
+                            >
+                                <div className=''>
+                                    <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
+                                        <GoogleMap
+                                            mapContainerStyle = {containerStyle}
+                                            center={defaultCenter}
+                                            zoom={10}
+                                        >
+                                            {/* Example: Marker */}
+                                            <Marker position={defaultCenter} />
+                                            <button onClick={handleButtonClick} className='absolute z-10 border w-6 h-6 rounded-[50%] -right-0 -top-0 font-bold text-red-800 text-md hover:text-white hover:bg-red-700 '>X</button>
+                                        </GoogleMap>
+                                    </LoadScript>
+                                </div>
+                             </div>
+                        )}
+                    </div>
+                    {/* end google map */}
                 </div>
                 <hr className='border-2 border-gray-700 ' />
                 <div className='flex justify-between  items-center h-[50px] w-[90%] mx-[5%]'>

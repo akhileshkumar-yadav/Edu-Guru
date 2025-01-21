@@ -13,6 +13,8 @@ import { RiFindReplaceLine } from "react-icons/ri";
 import { TypeAnimation } from 'react-type-animation';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dynamic from "next/dynamic";
 
 const page = () => {
@@ -21,6 +23,13 @@ const page = () => {
   const [listing, setListing] = useState([])
   const [filterListing, setFilterListing] = useState([])
   const [card, setCard] = useState([])
+  const [isReplaced, setIsReplaced] = useState(false);
+  
+  const handleButtonClick = () => {
+    setIsReplaced((prevState) => !prevState); // Toggle between true and false
+  };
+  
+
 
   const setting = {
     fade: true,
@@ -443,8 +452,46 @@ const page = () => {
       </div>
     </div>
     {/* End Icon Blocks */}
+    {/* btn for location */}
 
-    <MapComponent /> 
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      {!isReplaced ? (
+        <button
+          onClick={handleButtonClick}
+          style={{
+            padding: '20px 20px',
+            fontSize: '16px',
+            backgroundColor: '#0070f3',
+            color: 'black',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+
+          }}
+        >
+         <FontAwesomeIcon icon={faLocationDot} />
+         {/* <FontAwesomeIcon icon="fa-solid fa-location-crosshairs" /> */}
+        </button>
+      ) : (
+        <div
+          style={{
+            marginTop: '20px',
+            padding: '15px',
+            border: '1px solid #ccc',
+            borderRadius: '5px',
+            backgroundColor: '#f9f9f9',
+            // position:'relative'
+          }}
+        > 
+        <div className='relative'>
+          <MapComponent  />
+          
+           <button onClick={handleButtonClick} className='absolute -right-1 -top-3 text-red-400 text-2xl font-semibold'>X</button>
+           </div> 
+        </div>
+      )}
+    </div>
+       
       <Footer />
     </div>
 

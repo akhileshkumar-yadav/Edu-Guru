@@ -16,7 +16,11 @@ const UniversityListing = () => {
     const [listing, setListing] = useState([])
     const [filterListing, setFilterListing] = useState([])
     const [card, setCard] = useState([])
+    // const [isReplaced, setIsReplaced] = useState(false)
 
+    // const handleButtton = () => {
+    //     setIsReplaced((prevState) => !prevState);
+    // }
     const setting = {
         fade: true,
         infinite: true,
@@ -74,6 +78,7 @@ const UniversityListing = () => {
         setListing(filteredListing)
         
       }
+      
 
     return (
         <div className='relative '>
@@ -151,6 +156,7 @@ const UniversityListing = () => {
              
             <div className=' flex-row md:ml-36 justify-start border p-3 overflow-x-scroll rounded-sm border-gray-400  w-[80%] '>
                 <Slider {...settings}>
+
                     <button onClick={(e) => filterByCategory('btech')} className='overflow-x' ><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[90px]'>
                         <h1 className='border-[2px] py-1 px-2 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 rounded-3xl w-[80px]'>Btech</h1>
 
@@ -172,6 +178,7 @@ const UniversityListing = () => {
                         <h1 className='border-[2px] py-[3px]  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>MBA</h1>
                     </div>
                     </button>
+                    
                     <button onClick={(e) => filterByCategory('BCA')} href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
                         <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>BCA </h1>
                     </div>
@@ -182,12 +189,10 @@ const UniversityListing = () => {
                     </div>
                     </button>
 
-
+                    
                 </Slider>
 
             </div>
-
-
 
             <hr className='my-3' />
             {/*  college listing name */}
