@@ -15,6 +15,9 @@ const AddUniversity = () => {
             phone: '',
             image: '',
             courses: '',
+            linkUniversity:'',
+            let:'',
+            lng:'',
             category: '',
             Course1: '',
             Course2: '',
@@ -143,6 +146,45 @@ const AddUniversity = () => {
                             className='w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4'
                         />
                     </div>
+                        {/* add university link */}
+                        <div>
+                        <label className='pr-5 font-semibold text-xl' htmlFor="linkUniversity">linkUniversity:</label>
+                        <input
+                            type="text"
+                            id='linkUniversity'
+                            name='linkUniversity'
+                            onChange={addcollege.handleChange}
+                            value={addcollege.values.linkUniversity}
+                            className='w-[80%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4'
+                        />
+                    </div>
+                        {/* end link code */}
+                        
+                        {/* location  */}
+                        <div>
+                        <label className='pr-5 font-semibold text-xl' htmlFor="lat">lat :</label>
+                        <input
+                            type="text"
+                            id='lat'
+                            name='lat'
+                            onChange={addcollege.handleChange}
+                            value={addcollege.values.lat}
+                            className='w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4'
+                        />
+                    </div>
+                     
+                    <div>
+                        <label className='pr-5 font-semibold text-xl' htmlFor="lng">lng :</label>
+                        <input
+                            type="text"
+                            id='lng'
+                            name='lng'
+                            onChange={addcollege.handleChange}
+                            value={addcollege.values.lng}
+                            className='w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4'
+                        />
+                    </div>
+                        {/* end */}
                     <div>
                         <label className='pr-5 font-semibold text-xl' htmlFor="courses">courses :</label>
                         <input
@@ -154,6 +196,7 @@ const AddUniversity = () => {
                             className='w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4'
                         />
                     </div>
+
                     <div>
                         <label className='pr-5 font-semibold text-xl' htmlFor="category">category :</label>
                         <input

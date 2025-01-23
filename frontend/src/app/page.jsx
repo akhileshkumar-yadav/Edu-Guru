@@ -18,7 +18,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dynamic from "next/dynamic";
 
 const page = () => {
-
+ 
   const [inputValue, setInputValue] = useState('')
   const [listing, setListing] = useState([])
   const [filterListing, setFilterListing] = useState([])
@@ -256,7 +256,7 @@ const page = () => {
                         <h1 className='border-[2px] py-1 px-2 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 rounded-3xl w-[80px]'>Btech</h1>
 
                     </div>
-                    </button>
+                    </button> 
                     <button onClick={(e) => filterByCategory('Mtech')}  className='overflow-x' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[90px]'>
                         <h1 className='border-[2px]  px-3 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 py-1 pl-2 ml-4 rounded-3xl w-[80px]'>M-tech</h1>
                     </div>

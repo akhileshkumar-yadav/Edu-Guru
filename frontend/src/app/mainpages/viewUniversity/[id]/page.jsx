@@ -9,6 +9,8 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dynamic from "next/dynamic";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation'
 
 
 const ViewUniversity = () => {
@@ -36,12 +38,7 @@ const ViewUniversity = () => {
         width: "50%",
         height: "400px",
     };
-
-    // Default coordinates (example: India Gate, Delhi)
-    const defaultCenter = {
-        lat: 26.8740,
-        lng: 81.0209,
-    };
+    
     //  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
     //      const reviewRef = useRef();
     //      const [rating, setRating] = useState(3);
@@ -188,6 +185,19 @@ const ViewUniversity = () => {
     //         </>
     //     ))
     // }
+      // Default coordinates (example: India Gate, Delhi)
+      const defaultCenter = {
+        lat:parseFloat(universityList.lat),
+        lng:parseFloat(universityList.lng),
+    };
+
+    console.log(universityList.lat);
+    console.log(parseFloat(universityList.lng));
+    // string ko integer me kaise convert kare
+    // const lat = parseFloat(universityList.lat);
+    // float me
+    // const lng = parseFloat(universityList.lng);
+    
     return (
         <div className='bg-gray-100 w-full h-full overflow-x-scroll'>
             <div className='w-full relative'>
@@ -202,6 +212,9 @@ const ViewUniversity = () => {
                         <div className='flex-col '>
                             <h1 className=' text-3xl uppercase font-semibold'>{universityList.universityName}</h1>
                             <p className='text-md font-semibold'>{universityList.universityAddress}</p>
+                            <h1> 
+                             <a href={universityList.linkUniversity} className='text-blue-600 text-md font-semibold'>View University</a> 
+                            </h1>
 
                         </div>
                     </div>
