@@ -3,14 +3,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import { RiFindReplaceLine } from "react-icons/ri";
-import StarRatings from 'react-star-ratings';
 import classess from './viewuni.module.css'
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import dynamic from "next/dynamic";
-import Link from 'next/link';
-import { useRouter } from 'next/navigation'
+import { FaRegStar } from "react-icons/fa";
+import StarRatings from 'react-star-ratings';
 
 
 const ViewUniversity = () => {
@@ -18,30 +13,15 @@ const ViewUniversity = () => {
     const [universityList, setUniversityList] = useState([]);
     const [filterListing, setFilterListing] = useState([])
     const [isExpanded, setIsExpanded] = useState(false);
-    const [isReplaced, setIsReplaced] = useState(false);
-
-    const handleButtonClick = () => {
-        setIsReplaced((prevState) => !prevState);
-         // Toggle between true and false
-    };
+    const reviewRef = useRef();
+    const [rating, setRating] = useState(3);
+    const [reviews, setreviews] = useState([])
+    const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')));
 
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
     };
 
-
-
-    const containerStyle = {
-        position: 'absolute',
-        top: '50%',
-        left: '25%',
-        width: "50%",
-        height: "400px",
-    };
-    
-    //  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
-    //      const reviewRef = useRef();
-    //      const [rating, setRating] = useState(3);
 
     const fetchProduct = async () => {
         const res = await fetch("http://localhost:5000/admin/adduniversity/getbyid/" + id);
@@ -56,148 +36,99 @@ const ViewUniversity = () => {
         fetchProduct();
     }, []);
 
-    // const applysearch = (e) => {
-    //     const value = e.target.value;
-    //     setListing(listing.filter((listing) => {
-    //         return (listing.collegeName.toLowerCase().includes(e.target.value.toLowerCase()))
-    //     }))
-    // }
+    const fetchreviewsDAta = async () => {
+        const res = await fetch("http://localhost:5000/reviews/getbyuniversity/" + id);
+        console.log(res.status);
+        if (res.status === 200) {
+            const data = await res.json();
+            console.log(data);
+            setreviews(data)
+        }
+    }
+
+    useEffect(() => {
+        fetchreviewsDAta()
+    }, [])
+
+
     const filterByCategory = (product) => {
         console.log(product);
         const filteredListing = filterListing.filter(col => col.l.toLowerCase().includes(product.toLowerCase()))
         setUniversityList(filteredListing)
 
     }
-    //   const filterByCategory2 = (product) => {
-    //     console.log(product);
-    //     const filteredListing = filterListing.filter(col => col.courses.toLowerCase().includes(product.toLowerCase()))
-    //     setUniversityList(filteredListing)
 
-    //   }
+    const ratingForm = () => {
+        if (currentUser !== null) {
+            return <div>
+                <StarRatings
+                    rating={rating}
+                    starRatedColor="orange"
+                    changeRating={setRating}
+                    numberOfStars={5}
+                />
+                <textarea className='bg-blue-100 w-full mt-3' ref={reviewRef}></textarea>
+                <button className='bg-blue-900 text-white px-2 font-serif rounded' onClick={submitReview}>Submit Review</button>
+            </div>
+        } else {
+            return <p>login to give review</p>
+        }
+    }
 
-    // const fetchUserData = async () => {
-    //     const res = await fetch('http://localhost:3000/college/getbyid/' + id);
-    //     console.log(res.status);
-    //     if (res.status === 200) {
-    //         const data = await res.json();
-    //         console.log(data);
-    //         setCollegeList(data);
-    //     }
-    // };
+    const submitReview = async () => {
+        const res = await fetch('http://localhost:5000/reviews/add', {
+            method: 'POST',
+            body: JSON.stringify({
+                comment: reviewRef.current.value,
+                rating: rating,
+                user: currentUser._id,
+                college: id
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log(res.status);
+        if (res.status === 200) {
+            console.log('review submitted');
+            // enqueueSnackbar('Review submitted', { variant: 'success' });
+            fetchreviewsDAta();
+        } else {
+            console.log(err);
+        }
+    }
 
-    // useEffect(() => {
-    //     fetchUserData();
-    // }, []);
+    const ReviewsData = () => {
+        if (reviews.length === 0) {
+            return <h1 className='text-center fw-bold' style={{ color: "seagreen" }}>No Data Found</h1>
+        }
 
-    //   const [reviews, setreviews] = useState([])
+        return reviews.map((rev) => (
+            <>
 
-    //   const fetchreviewsDAta = async () => {
-    //       const res = await fetch("http://localhost:3000/reviews/getbycollege/" + id);
-    //       console.log(res.status);
-    //       if (res.status === 200) {
-    //           const data = await res.json();
-    //           console.log(data);
-    //           setreviews(data)
-    //       }
-    //   }
+                <div className="row h-50 shadow mb-4 py-3">
+                    <div className="col-md-1">
+                        <img className='w-16 h-16 rounded-full' src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="" />
 
-    //   useEffect(() => {
-    //       fetchreviewsDAta()
-    //   }, [])
+                    </div>
+                    <div className="col-md-9">
+                        <p className='text-warning ' style={{ fontFamily: "cursive" }}>{rev.rating}Star</p>
+                        <p className=' fw-semibold fs-5  ' style={{ fontFamily: "serif" }}>{currentUser.name}</p>
+                        <p className=' '>{rev.comment}</p>
+                    </div>
 
-    //   const deletefunction = async (id) => {
-    //     console.log(id);
+                    <div className="col-md-2 my-auto">
+                        {/* <button className="bg-red-600  text-white rounded-lg px-4 py-1"  onClick={() => {deletefunction(rev._id)}}>Delete</button> */}
 
-    //     const res = await fetch('http://localhost:3000/reviews/delete/' + id, { method: 'DELETE' })
-
-    //     if (res.status === 200) {
-    //         fetchreviewsDAta();
-    //     }
-    // }
-
-    //   const ratingForm = () => {
-    //     if (currentUser !== null) {
-    //         return <div>
-    //             <StarRatings
-    //                 rating={rating}
-    //                 starRatedColor="orange"
-    //                 changeRating={setRating}
-    //                 numberOfStars={5}
-    //             />
-    //             <textarea className='bg-blue-100 w-full mt-3' ref={reviewRef}></textarea>
-    //             <button className='bg-blue-900 text-white px-2 font-serif rounded' onClick={submitReview}>Submit Review</button>
-    //         </div>
-    //     } else {
-    //         return <p>login to give review</p>
-    //     }
-    // }
-
-    // const submitReview = async () => {
-    //         const res = await fetch('http://localhost:3000/reviews/add', {
-    //             method: 'POST',
-    //             body: JSON.stringify({
-    //                 comment: reviewRef.current.value,
-    //                 rating: rating,
-    //                 user: currentUser._id,
-    //                 college: id
-    //             }),
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             }
-    //         });
-    //         console.log(res.status);
-    //         if (res.status === 200) {
-    //             console.log('review submitted');
-    //             enqueueSnackbar('Review submitted', { variant: 'success' });
-    //             fetchreviewsDAta();
-    //         } else {
-    //             console.log(err);
-    //         }
-    //     }
-
-    //   const ReviewsData = () => {
-    //     if (reviews.length === 0) {
-    //         return <h1 className='text-center fw-bold' style={{ color: "seagreen" }}>No Data Found</h1>
-    //     }
-
-    //     return reviews.map((rev) => (
-    //         <>
-
-    //             <div className="row h-50 shadow mb-4 py-3">
-    //                 <div className="col-md-1">
-    //                     <img className='w-16 h-16 rounded-full' src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="" />
-
-    //                 </div>
-    //                 <div className="col-md-9">
-    //                     <p className='text-warning ' style={{ fontFamily: "cursive" }}>{rev.rating}Star</p>
-    //                     <p className=' fw-semibold fs-5  ' style={{ fontFamily: "serif" }}>{currentUser.name}</p>
-    //                     <p className=' '>{rev.comment}</p>
-    //                 </div>
-
-    //                 <div className="col-md-2 my-auto">
-    //                     {/* <button className="bg-red-600  text-white rounded-lg px-4 py-1"  onClick={() => {deletefunction(rev._id)}}>Delete</button> */}
-
-    //                 </div>
-    //             </div>
+                    </div>
+                </div>
 
 
 
-    //         </>
-    //     ))
-    // }
-      // Default coordinates (example: India Gate, Delhi)
-      const defaultCenter = {
-        lat:parseFloat(universityList.lat),
-        lng:parseFloat(universityList.lng),
-    };
+            </>
+        ))
+    }
 
-    console.log(universityList.lat);
-    console.log(parseFloat(universityList.lng));
-    // string ko integer me kaise convert kare
-    // const lat = parseFloat(universityList.lat);
-    // float me
-    // const lng = parseFloat(universityList.lng);
-    
     return (
         <div className='bg-gray-100 w-full h-full overflow-x-scroll'>
             <div className='w-full relative'>
@@ -212,15 +143,15 @@ const ViewUniversity = () => {
                         <div className='flex-col '>
                             <h1 className=' text-3xl uppercase font-semibold'>{universityList.universityName}</h1>
                             <p className='text-md font-semibold'>{universityList.universityAddress}</p>
-                            <h1> 
-                             <a href={universityList.linkUniversity} className='text-blue-600 text-md font-semibold'>View University</a> 
+                            <h1>
+                                <a href={universityList.linkUniversity} className='text-blue-600 text-md font-semibold'>View University</a>
                             </h1>
 
                         </div>
                     </div>
                     {/* google map add */}
 
-                    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+                    {/* <div style={{ textAlign: 'center', marginTop: '50px' }}>
                         {!isReplaced ? (
                             <button
                                 onClick={handleButtonClick}
@@ -232,12 +163,12 @@ const ViewUniversity = () => {
                                     border: 'none',
                                     borderRadius: '5px',
                                     cursor: 'pointer',
-                                    marginRight:"40px",
+                                    marginRight: "40px",
 
                                 }}
                             >
                                 <FontAwesomeIcon icon={faLocationDot} />
-                                {/* <FontAwesomeIcon icon="fa-solid fa-location-crosshairs" /> */}
+                               
                             </button>
                         ) : (
                             <div
@@ -247,25 +178,25 @@ const ViewUniversity = () => {
                                     border: '1px solid #ccc',
                                     borderRadius: '5px',
                                     backgroundColor: '#f9f9f9',
-                                    // position:'relative'
+                                
                                 }}
                             >
                                 <div className=''>
                                     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
                                         <GoogleMap
-                                            mapContainerStyle = {containerStyle}
+                                            mapContainerStyle={containerStyle}
                                             center={defaultCenter}
                                             zoom={10}
                                         >
-                                            {/* Example: Marker */}
+                                      
                                             <Marker position={defaultCenter} />
                                             <button onClick={handleButtonClick} className='absolute z-10 border w-6 h-6 rounded-[50%] -right-0 -top-0 font-bold text-red-800 text-md hover:text-white hover:bg-red-700 '>X</button>
                                         </GoogleMap>
                                     </LoadScript>
                                 </div>
-                             </div>
+                            </div>
                         )}
-                    </div>
+                    </div> */}
                     {/* end google map */}
                 </div>
                 <hr className='border-2 border-gray-700 ' />
@@ -447,21 +378,23 @@ const ViewUniversity = () => {
                 </div>
             </div>
             <hr className='mt-3' />
-            {/* <div className="container mx-[10%]  ">
-                <div className="row card ml-10 mt-4 py-3 mb-4 px-4 border-none  shadow">
+
+            <hr className='mt-3' />
+
+            <div className="container">
+                <div className="row card py-3 mb-4 px-4 border-none  shadow">
                     <div className="col-md-8">
                         <h2 className="">Reviews And Ratings</h2>
                         <p className="fs-4 mb-2"></p>
                         {ratingForm()}
-                        {/* <Link to={/collegeReview/${CollegeList._id}}><button type="button" className="btn mb-4 btn-outline-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2  dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Add Review</button>
-                        </Link> 
+                        {/* <Link to={`/collegeReview/${CollegeList._id}`}><button type="button" className="btn mb-4 btn-outline-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2  dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Add Review</button>
+                        </Link> */}
                     </div>
                 </div>
-            </div> */}
-            {/* <div className="row ">
+            </div>
+            <div className="row ">
                 {ReviewsData()}
-            </div> */}
-            <hr className='mt-3' />
+            </div>
         </div>
     )
 }

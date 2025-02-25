@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-// import useAppContext from '@/context/appContext'
+import useAppContext from '../../../context/appcontext'
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -22,7 +22,7 @@ const LoginSchema = Yup.object().shape({
     .required('password is required'),
 })
 const Login = () => {
-  // const {setLoggedIn, setCurrentUser} = useAppContext();
+  const {setLoggedIn, setCurrentUser} = useAppContext();
   const router = useRouter()
   const LoginForm = useFormik({
     initialValues: {
@@ -35,8 +35,9 @@ const Login = () => {
       axios.post('http://localhost:5000/user/authenticate', values)
       .then((response) => {
         console.log(response.status)
-        // localStorage.setItem('user', JSON.stringify(response.data))
-        // setLoggedIn(true)
+        localStorage.setItem('user', JSON.stringify(response.data))
+        setLoggedIn(true)
+        setCurrentUser(response.data)
         resetForm()
         toast.success('Login successfully')
         router.push('/')
