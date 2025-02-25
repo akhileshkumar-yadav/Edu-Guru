@@ -317,6 +317,7 @@ const page = () => {
                                         return 'bg-white'
                                     }
                                 }
+                                if(index<=5){
                                 return <tr className={`h-[100px] ${backgroundcolor(index + 1)} `} key={item._id} >
                                     <td className="px-4 py-2 text-gray-500 ">#{index + 1}</td>
                                     <td className="pl-4 py-2 max-w-[70px]"><div className='flex justify-center items-center h-[50px] ml-3 w-[50px] rounded-[50%]  border '>
@@ -328,6 +329,7 @@ const page = () => {
                                     <td className="px-4 py-2 max-w-[200px] text-gray-500 mt-3 md:text-[18px] text-[17px] ">{item.courses}</td>
                                     <td className="px-4 py-2 text-gray-500  max-w-[120px] ">{item.universityDetail}</td>
                                 </tr>
+                                }
                             })}
                     </tbody>
                 </table>
