@@ -21,228 +21,29 @@ const navbar = () => {
             </Link>
           </div>
 
-          {/* dropdown */}
-
-          {/* <div className='lg:absolute lg:left-[250px] hidden md:flex items-center ml-auto space-x-8'>
-        <div className='group max-lg:border-b flex-col max-lg:px-3 max-lg:py-3 relative'>
-          <h1 className='text-orange-600 text-sm font-semibold inline-block '><GoGoal className='inline-block ml-2 font-semibold w-6' />Select Goal</h1>
-        <Link
-              href="javascript:void(0)"
-              className="hover:text-[#007bff] ml-9 hover:fill-[#007bff] text-gray-600  text-[12px] block"
-            >
-              Select Goal
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16px"
-                height="16px"
-                className="ml-1 inline-block"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 16a1 1 0 0 1-.71-.29l-6-6a1 1 0 0 1 1.42-1.42l5.29 5.3 5.29-5.29a1 1 0 0 1 1.41 1.41l-6 6a1 1 0 0 1-.7.29z"
-                  data-name={16}
-                  data-original="#000000"
-                />
-              </svg>
-            </Link>
-            <ul className="absolute top-10 max-lg:top-10 left-0 z-50 block space-y-2 shadow-lg bg-white max-h-0 overflow-hidden min-w-[700px] rounded-b-lg group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-500">
-              <li className="border-b py-1">
-                <Link
-                  href="javascript:void(0)"
-                  className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                >
-                  <img className='h-[30px] w-[30px] inline-block mr-3' src="worker.png" alt="" />
-                  Engineering
-                </Link>
-                <div className='flex my-2 justify-start items-center'>
-                  <div className=' flex  text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                  <Link href="/mainpages/btech">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>BE/Btech</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[110px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                  <div className=' flex ml-2 text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                    <Link href="/mainpages/mtech">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>ME/Mtech</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[110px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                  <div className=' flex ml-2 text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                  <Link href="/mainpages/mtech">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>Diploma</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[110px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                </div>
-                <div className='flex justify-center items-center'>
-                  <div className='lg:w-[300px] flex justify-between items-center'>
-                    
-                  </div>
-                </div>
-              </li>
-              <li className="border-b py-1">
-                <Link
-                  href="javascript:void(0)"
-                  className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                >
-                  <img className='inline-block w-[30px] h-[30px] mr-3' src="ma.png" alt="" />
-                  Management
-                </Link>
-                <div className='flex my-2 justify-start items-center'>
-                  <div className=' flex  text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                  <Link href="/mainpages/mba">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>MBA/PGDM</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[70px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                  <div className=' flex ml-2 text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                    <Link href="/mainpages/bba">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>BBA/BMS</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[70px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                  <div className=' flex ml-2 text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                  <Link href="/mainpages/mba">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>Executive MBA</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[70px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                </div>
-              </li>
-              <li className="border-b py-1">
-                <Link
-                  href="javascript:void(0)"
-                  className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                >
-                <img src="comme.png" className='inline-block w-[30px] h-[30px] mr-3' alt="" />
-                  Commerce
-                </Link>
-                <div className='flex my-2 justify-start items-center'>
-                  <div className=' flex  text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                  <Link href="/mainpages/bcom">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>B.Com</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[110px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                  <div className=' flex ml-2 text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                    <Link href="/mainpages/mcom">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>M.Com</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[110px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                </div>
-              </li>
-              <li className="border-b py-1">
-                <a
-                  href="javascript:void(0)"
-                  className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                >
-                  <img src="art.png" className='inline-block h-[30px] w-[30px] mr-3' alt="" />
-                  Arts
-                </a>
-                <div className='flex my-2 justify-start items-center'>
-                  <div className=' flex  text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                  <Link href="/mainpages/ba">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>BA</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[110px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                  <div className=' flex ml-2 text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                    <Link href="/mainpages/ma">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>MA</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[110px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                </div>
-              </li>
-              <li className="border-b py-1">
-                <a
-                  href="javascript:void(0)"
-                  className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                >
-                  <img src="com.png" className='inline-block h-[30px] w-[30px] mr-3' alt="" />
-                  Computer Application
-                </a>
-                <div className='flex my-2 justify-start items-center'>
-                  <div className=' flex  text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                  <Link href="/mainpages/bca">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>BCA</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[110px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                  <div className=' flex ml-2 text-gray-400 h-[40px] rounded-lg hover:text-cyan-300 items-center hover:bg-cyan-100 hover:border-2 hover:border-cyan-300 '>
-                    <Link href="/mainpages/mca">
-                    <h1 className=' inline-block ml-2 text-md font-normal'>MCA</h1>
-                    <h1 className='inline-block text-md mr-2 font-normal ml-[110px]'><FaChevronRight className='font-normal text-sm' /></h1>
-                    </Link>
-                  </div>
-                </div>
-              </li>
-            </ul>
-        </div>
-      </div> */}
-          <div className="left-10 absolute top-5 lg:left-[700px] z-50 bg-gray-100 w-[500px] border border-gray-400 h-[45px] flex pl-4 items-center rounded-md max-lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 192.904 192.904"
-              width="20px"
-              className="cursor-pointer fill-gray-400 mr-6 rotate-90 inline-block"
-            >
-              <path d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z"></path>
-            </svg>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="outline-none bg-transparent w-full text-sm"
-            />
-            <button className='bg-orange-400 h-[100%] text-white rounded-e-md w-[30%]'>Search</button>
-          </div>
           <div className="lg:absolute lg:right-10 flex items-center ml-auto space-x-8">
-            <span className="relative">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20px"
-                className="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block"
-                viewBox="0 0 64 64"
-              >
-                <path
-                  d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
-                  data-original="#000000"
-                />
-              </svg>
-              <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
-                1
-              </span>
-            </span>
-            {/* {loggedIn ? (
-              <div className="md:ms-auto mt-2 md:mt-0 flex flex-wrap items-center gap-x-1.5">
-                <button
-                  className="py-[7px] px-2.5 inline-flex items-center font-medium text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                  onClick={logout}
-                >
-                  Logout
-                </button>
-
-
-
-              </div>
-            ) : ( */}
-              <Link href={'/mainpages/signUp'} className="inline-block cursor-pointer border-gray-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20px"
-                  height="20px"
-                  viewBox="0 0 24 24"
-                  className="hover:fill-[#007bff]"
-                >
-                  <circle cx={10} cy={7} r={6} data-original="#000000" />
-                  <path
-                    d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
-                    data-original="#000000"
-                  />
-                </svg>
-              </Link>
-              {/* )}  */}
+            
+          {/* {loggedIn ? (
+                  <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                    <button
+                      className="py-[7px] px-2.5 inline-flex items-center font-medium text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                      onClick={logout}
+                    >
+                      Logout
+                    </button>
+                  </div>
+                ) : ( */}
+                 <div className="flex  md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"> 
+            <Link href="/signup">
+            <button
+              type="button"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Get started
+            </button>
+            </Link>
+          </div>
+          {/* )} */}
           </div>
         </section>
         <div className="flex flex-wrap justify-center px-10 py-3 relative">

@@ -10,7 +10,6 @@
 //   const [currentUser, setCurrentUser] = useState(
 //     JSON.parse(localStorage.getItem("user"))
 //   );
-  
 
 //   const [loggedIn, setLoggedIn] = useState(currentUser !== null);
 

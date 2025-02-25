@@ -26,9 +26,11 @@ export default function RootLayout({ children }) {
       </head>
       <body>
          {/* <AppProvider> */}
-         <Sidebar />
+         
         <Toaster position="top-right " />
+        <Sidebar />
         {children}
+        
         {/* <Footer /> */}
         {/* </AppProvider> */}
       </body>

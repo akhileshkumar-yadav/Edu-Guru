@@ -13,13 +13,23 @@ import { RiFindReplaceLine } from "react-icons/ri";
 import { TypeAnimation } from 'react-type-animation';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import dynamic from "next/dynamic";
 
 const page = () => {
-
+ 
   const [inputValue, setInputValue] = useState('')
   const [listing, setListing] = useState([])
   const [filterListing, setFilterListing] = useState([])
   const [card, setCard] = useState([])
+  const [isReplaced, setIsReplaced] = useState(false);
+  
+  const handleButtonClick = () => {
+    setIsReplaced((prevState) => !prevState); // Toggle between true and false
+  };
+  
+
 
   const setting = {
     fade: true,
@@ -53,6 +63,9 @@ const page = () => {
     autoplaySpeed: 2000,
     cssEase: "linear"
   };
+  const MapComponent = dynamic(() => import("./mainpages/GoogleMap/page"), {
+    ssr: false, // Disable server-side rendering for Google Maps
+  });
   const fetchRoadmapListing = () => {
     axios.get('http://localhost:5000/admin/adduniversity/getall')
       .then((result) => {
@@ -124,7 +137,7 @@ const page = () => {
             </div>
 
           </Slider>
-          <div className='absolute  md:top-[10%] top-[3%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
+          <div className='absolute  md:top-[7%] top-[3%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
             <div className='flex justify-center items-center bg-transparent'>
               <h1 className=' text-3xl lg:hidden text-white font-semibold '>Find Top University in india</h1>
               <div className='lg:text-2xl hidden lg:block text-md text-white font-semibold '>
@@ -243,7 +256,7 @@ const page = () => {
                         <h1 className='border-[2px] py-1 px-2 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 rounded-3xl w-[80px]'>Btech</h1>
 
                     </div>
-                    </button>
+                    </button> 
                     <button onClick={(e) => filterByCategory('Mtech')}  className='overflow-x' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[90px]'>
                         <h1 className='border-[2px]  px-3 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 py-1 pl-2 ml-4 rounded-3xl w-[80px]'>M-tech</h1>
                     </div>
@@ -304,6 +317,7 @@ const page = () => {
                                         return 'bg-white'
                                     }
                                 }
+                                if(index<=5){
                                 return <tr className={`h-[100px] ${backgroundcolor(index + 1)} `} key={item._id} >
                                     <td className="px-4 py-2 text-gray-500 ">#{index + 1}</td>
                                     <td className="pl-4 py-2 max-w-[70px]"><div className='flex justify-center items-center h-[50px] ml-3 w-[50px] rounded-[50%]  border '>
@@ -315,6 +329,7 @@ const page = () => {
                                     <td className="px-4 py-2 max-w-[200px] text-gray-500 mt-3 md:text-[18px] text-[17px] ">{item.courses}</td>
                                     <td className="px-4 py-2 text-gray-500  max-w-[120px] ">{item.universityDetail}</td>
                                 </tr>
+                                }
                             })}
                     </tbody>
                 </table>
@@ -439,8 +454,46 @@ const page = () => {
       </div>
     </div>
     {/* End Icon Blocks */}
+    {/* btn for location */}
 
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      {!isReplaced ? (
+        <button
+          onClick={handleButtonClick}
+          style={{
+            padding: '20px 20px',
+            fontSize: '16px',
+            backgroundColor: '#0070f3',
+            color: 'black',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
 
+          }}
+        >
+         <FontAwesomeIcon icon={faLocationDot} />
+         {/* <FontAwesomeIcon icon="fa-solid fa-location-crosshairs" /> */}
+        </button>
+      ) : (
+        <div
+          style={{
+            marginTop: '20px',
+            padding: '15px',
+            border: '1px solid #ccc',
+            borderRadius: '5px',
+            backgroundColor: '#f9f9f9',
+            // position:'relative'
+          }}
+        > 
+        <div className='relative'>
+          <MapComponent  />
+          
+           <button onClick={handleButtonClick} className='absolute -right-1 -top-3 text-red-400 text-2xl font-semibold'>X</button>
+           </div> 
+        </div>
+      )}
+    </div>
+       
       <Footer />
     </div>
 

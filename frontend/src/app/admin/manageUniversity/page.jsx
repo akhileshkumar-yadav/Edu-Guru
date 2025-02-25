@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 const ManageUser = () => {
     const [userList, setUserList] = useState([])
 
@@ -30,6 +31,7 @@ const ManageUser = () => {
             .then((result) => {
                 toast.success('user deleted successfully')
                 fetchUserList()
+                router.push('/admin/dashboard')
             }).catch((err) => {
                 console.log(err)
                 toast.error('failed to delete user')

@@ -143,10 +143,61 @@ const ViewUniversity = () => {
                         <div className='flex-col '>
                             <h1 className=' text-3xl uppercase font-semibold'>{universityList.universityName}</h1>
                             <p className='text-md font-semibold'>{universityList.universityAddress}</p>
+                            <h1> 
+                             <a href={universityList.linkUniversity} className='text-blue-600 text-md font-semibold'>View University</a> 
+                            </h1>
 
                         </div>
                     </div>
-                    <div className='flex mr-[7%] mt-[3%]  text-white '>Lorem ipsum dolor sit amet.</div>
+                    {/* google map add */}
+
+                    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+                        {!isReplaced ? (
+                            <button
+                                onClick={handleButtonClick}
+                                style={{
+                                    padding: '15px 20px',
+                                    fontSize: '16px',
+                                    backgroundColor: '#4396f3',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '5px',
+                                    cursor: 'pointer',
+                                    marginRight:"40px",
+
+                                }}
+                            >
+                                <FontAwesomeIcon icon={faLocationDot} />
+                                {/* <FontAwesomeIcon icon="fa-solid fa-location-crosshairs" /> */}
+                            </button>
+                        ) : (
+                            <div
+                                style={{
+                                    marginTop: '20px',
+                                    padding: '15px',
+                                    border: '1px solid #ccc',
+                                    borderRadius: '5px',
+                                    backgroundColor: '#f9f9f9',
+                                    // position:'relative'
+                                }}
+                            >
+                                <div className=''>
+                                    <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
+                                        <GoogleMap
+                                            mapContainerStyle = {containerStyle}
+                                            center={defaultCenter}
+                                            zoom={10}
+                                        >
+                                            {/* Example: Marker */}
+                                            <Marker position={defaultCenter} />
+                                            <button onClick={handleButtonClick} className='absolute z-10 border w-6 h-6 rounded-[50%] -right-0 -top-0 font-bold text-red-800 text-md hover:text-white hover:bg-red-700 '>X</button>
+                                        </GoogleMap>
+                                    </LoadScript>
+                                </div>
+                             </div>
+                        )}
+                    </div>
+                    {/* end google map */}
                 </div>
                 <hr className='border-2 border-gray-700 ' />
                 <div className='flex justify-between  items-center h-[50px] w-[90%] mx-[5%]'>
@@ -349,3 +400,8 @@ const ViewUniversity = () => {
 }
 
 export default ViewUniversity
+
+
+
+
+// AIzaSyD36yH9dndofDSRPd10A6Qjex7KTgg2KPg

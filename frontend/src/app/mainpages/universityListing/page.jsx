@@ -16,7 +16,11 @@ const UniversityListing = () => {
     const [listing, setListing] = useState([])
     const [filterListing, setFilterListing] = useState([])
     const [card, setCard] = useState([])
+    // const [isReplaced, setIsReplaced] = useState(false)
 
+    // const handleButtton = () => {
+    //     setIsReplaced((prevState) => !prevState);
+    // }
     const setting = {
         fade: true,
         infinite: true,
@@ -74,6 +78,7 @@ const UniversityListing = () => {
         setListing(filteredListing)
         
       }
+      
 
     return (
         <div className='relative '>
@@ -105,7 +110,7 @@ const UniversityListing = () => {
                     </div>
 
                 </Slider>
-                <div className='absolute lg:top-[15%] md:top-[10%] top-[5%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
+                <div className='absolute lg:top-[10%] md:top-[10%] top-[5%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
                     <div className='flex justify-center items-center bg-transparent'>
                         <h1 className=' text-3xl lg:hidden text-white font-semibold '>Find Top University in india</h1>
                         <div className='lg:text-2xl hidden lg:block text-md text-white font-semibold '>
@@ -151,6 +156,7 @@ const UniversityListing = () => {
              
             <div className=' flex-row md:ml-36 justify-start border p-3 overflow-x-scroll rounded-sm border-gray-400  w-[80%] '>
                 <Slider {...settings}>
+
                     <button onClick={(e) => filterByCategory('btech')} className='overflow-x' ><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[90px]'>
                         <h1 className='border-[2px] py-1 px-2 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 rounded-3xl w-[80px]'>Btech</h1>
 
@@ -172,6 +178,7 @@ const UniversityListing = () => {
                         <h1 className='border-[2px] py-[3px]  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>MBA</h1>
                     </div>
                     </button>
+                    
                     <button onClick={(e) => filterByCategory('BCA')} href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
                         <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>BCA </h1>
                     </div>
@@ -182,12 +189,10 @@ const UniversityListing = () => {
                     </div>
                     </button>
 
-
+                    
                 </Slider>
 
             </div>
-
-
 
             <hr className='my-3' />
             {/*  college listing name */}
@@ -231,16 +236,17 @@ const UniversityListing = () => {
                 </table>
             </div>
 
-            <hr className='my-3' />
+            <hr className='my-6' />
 
             {/*  card */}
-            <h1 className='text-3xl my-3 text-gray-900 font-semibold md:mx-36'>Top Five University</h1>
-            <div className='md:mx-36  lg:max-w-[80%]'>
-                <div className='flex overflow-x-auto  gap-4'>
+            <div className='md:mx-36  border lg:max-w-[80%]'>
+            <h1 className='text-3xl my-3  text-gray-900 font-semibold md:mx-7'>Top Five University</h1>
+            <div className=' mb-3 px-3 lg:max-w-[100%]'>
+                <div className='flex overflow-x-auto  gap-6'>
                     {
                         card.map((item, index) => {
                             if(index<5){
-                        return  <div className=" flex-col  min-h-[380px] border min-w-[340px] rounded-md mb-3 gap-4">
+                        return  <div className=" flex-col  min-h-[410px] border min-w-[340px] rounded-md mb-3 gap-4">
                         <div className='w-[full] relative  h-[130px] rounded-md'>
                             {/* background image */}
                             <img className='w-[340px] h-[140px] rounded-t-md object-cover' src={item.image2} alt="" />
@@ -295,6 +301,8 @@ const UniversityListing = () => {
                     )}
                 </div>
             </div>
+            </div>
+            <hr className='my-5' />
         </div>
     )
 }
