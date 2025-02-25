@@ -41,7 +41,7 @@ const SignUp = () => {
           console.log(response.status)
           resetForm()
           toast.success('SignUp user info add successfully')
-          router.push('/login')
+          router.push('/mainpages/login')
 
         }).catch((err) => {
           console.log(err);
