@@ -16,7 +16,7 @@ const ViewUniversity = () => {
     const reviewRef = useRef();
     const [rating, setRating] = useState(3);
     const [reviews, setreviews] = useState([])
-    const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+    const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')));
 
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
@@ -91,7 +91,7 @@ const ViewUniversity = () => {
         console.log(res.status);
         if (res.status === 200) {
             console.log('review submitted');
-            enqueueSnackbar('Review submitted', { variant: 'success' });
+            // enqueueSnackbar('Review submitted', { variant: 'success' });
             fetchreviewsDAta();
         } else {
             console.log(err);
@@ -143,15 +143,15 @@ const ViewUniversity = () => {
                         <div className='flex-col '>
                             <h1 className=' text-3xl uppercase font-semibold'>{universityList.universityName}</h1>
                             <p className='text-md font-semibold'>{universityList.universityAddress}</p>
-                            <h1> 
-                             <a href={universityList.linkUniversity} className='text-blue-600 text-md font-semibold'>View University</a> 
+                            <h1>
+                                <a href={universityList.linkUniversity} className='text-blue-600 text-md font-semibold'>View University</a>
                             </h1>
 
                         </div>
                     </div>
                     {/* google map add */}
 
-                    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+                    {/* <div style={{ textAlign: 'center', marginTop: '50px' }}>
                         {!isReplaced ? (
                             <button
                                 onClick={handleButtonClick}
@@ -163,12 +163,12 @@ const ViewUniversity = () => {
                                     border: 'none',
                                     borderRadius: '5px',
                                     cursor: 'pointer',
-                                    marginRight:"40px",
+                                    marginRight: "40px",
 
                                 }}
                             >
                                 <FontAwesomeIcon icon={faLocationDot} />
-                                {/* <FontAwesomeIcon icon="fa-solid fa-location-crosshairs" /> */}
+                               
                             </button>
                         ) : (
                             <div
@@ -178,25 +178,25 @@ const ViewUniversity = () => {
                                     border: '1px solid #ccc',
                                     borderRadius: '5px',
                                     backgroundColor: '#f9f9f9',
-                                    // position:'relative'
+                                
                                 }}
                             >
                                 <div className=''>
                                     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
                                         <GoogleMap
-                                            mapContainerStyle = {containerStyle}
+                                            mapContainerStyle={containerStyle}
                                             center={defaultCenter}
                                             zoom={10}
                                         >
-                                            {/* Example: Marker */}
+                                      
                                             <Marker position={defaultCenter} />
                                             <button onClick={handleButtonClick} className='absolute z-10 border w-6 h-6 rounded-[50%] -right-0 -top-0 font-bold text-red-800 text-md hover:text-white hover:bg-red-700 '>X</button>
                                         </GoogleMap>
                                     </LoadScript>
                                 </div>
-                             </div>
+                            </div>
                         )}
-                    </div>
+                    </div> */}
                     {/* end google map */}
                 </div>
                 <hr className='border-2 border-gray-700 ' />
