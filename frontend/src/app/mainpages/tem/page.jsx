@@ -1,58 +1,87 @@
 'use client'
-import { useState } from 'react';
+import React from 'react'
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const LocationFilterDropdown = () => {
-  const locations = [
-    { id: 1, name: 'Andhra Pradesh' },
-    { id: 2, name: 'Arunachal Pradesh' },
-    { id: 3, name: 'Assam' },
-    { id: 4, name: 'Bihar' },
-    { id: 5, name: 'Chhattisgarh' },
-    { id: 6, name: 'Goa' },
-    { id: 7, name: 'Gujarat' },
-    { id: 8, name: 'Haryana' },
-    { id: 9, name: 'Himachal Pradesh' },
-    { id: 10, name: 'Jharkhand' },
-    { id: 11, name: 'Karnataka' },
-    { id: 12, name: 'Kerala' },
-    { id: 13, name: 'Madhya Pradesh' },
-    { id: 14, name: 'Maharashtra' },
-    { id: 15, name: 'Manipur' },
-    { id: 16, name: 'Meghalaya' },
-    { id: 17, name: 'Mizoram' },
-    { id: 18, name: 'Nagaland' },
-    { id: 19, name: 'Odisha' },
-    { id: 20, name: 'Punjab' },
-    { id: 21, name: 'Rajasthan' },
-    { id: 22, name: 'Sikkim' },
-    { id: 23, name: 'Tamil Nadu' },
-    { id: 24, name: 'Telangana' },
-    { id: 25, name: 'Tripura' },
-    { id: 26, name: 'Uttar Pradesh' },
-    { id: 27, name: 'Uttarakhand' },
-    { id: 28, name: 'West Bengal' }
-  ];
-
-  const [selectedLocation, setSelectedLocation] = useState('');
-
-  const handleLocationChange = (e) => {
-    setSelectedLocation(e.target.value);
-  };
-
-  return (
-    <div>
-      <h1>Select an Indian State</h1>
-      
-      <select value={selectedLocation} onChange={handleLocationChange}>
-        <option value="">Select a State</option>
-        {locations.map((location) => (
-          <option key={location.id} value={location.name}>
-            {location.name}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
+const NextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{ 
+                ...style, 
+                display: "block", 
+                background: "orange", 
+                borderRadius: "50%" 
+            }}
+            onClick={onClick}
+        />
+    );
 };
 
-export default LocationFilterDropdown;
+const PrevArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{ 
+                ...style, 
+                display: "block", 
+                background: "orange", 
+                borderRadius: "50%" 
+            }}
+            onClick={onClick}
+        />
+    );
+};
+
+const tem = () => {
+    const settings = {
+        // dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />
+    };
+
+    const data = [
+        { id: 1, image: "https://picsum.photos/200?random=1", name: "Ravi", age: 25, city: "Delhi", profession: "Engineer" },
+        { id: 2, image: "https://picsum.photos/200?random=2", name: "Priya", age: 30, city: "Mumbai", profession: "Doctor" },
+        { id: 3, image: "https://picsum.photos/200?random=3", name: "Amit", age: 28, city: "Pune", profession: "Designer" },
+        { id: 4, image: "https://picsum.photos/200?random=4", name: "Neha", age: 22, city: "Bangalore", profession: "Developer" },
+        { id: 5, image: "https://picsum.photos/200?random=5", name: "Raj", age: 35, city: "Hyderabad", profession: "Manager" },
+        { id: 6, image: "https://picsum.photos/200?random=6", name: "Anjali", age: 27, city: "Chennai", profession: "Architect" },
+        { id: 7, image: "https://picsum.photos/200?random=7", name: "Vikram", age: 32, city: "Jaipur", profession: "Photographer" },
+        { id: 8, image: "https://picsum.photos/200?random=8", name: "Pooja", age: 26, city: "Kolkata", profession: "Journalist" },
+        { id: 9, image: "https://picsum.photos/200?random=9", name: "Sahil", age: 29, city: "Lucknow", profession: "Chef" },
+        { id: 10, image: "https://picsum.photos/200?random=10", name: "Simran", age: 24, city: "Chandigarh", profession: "Writer" }
+    ];
+
+    return (
+        <div className='m-auto w-3/4 my-10'>
+            <div className='mt-20'>
+                <Slider {...settings}>
+                    {data.map((item) => (
+                        <div key={item.id} className='  text-black ml-5 rounded-2xl my-2 h-[450px] shadow-lg'>
+                            <div className='flex justify-center items-center  rounded-2xl bg-indigo-400 h-56'>
+                                <img src={item.image} alt={item.name} className='rounded-full w-32 h-32' />
+                            </div>
+                            <div className='p-4 flex justify-center flex-col items-center'>
+                                <h2 className='text-2xl font-bold'>{item.name}</h2>
+                                <p className='text-lg'>{item.profession}</p>
+                                <p className='text-lg'>{item.city}</p>
+                                <p className='text-lg'>{item.age}</p>
+                                <button className='bg-orange-400 text-white px-4 py-1 rounded-2xl mt-2'>Submit</button>
+                            </div>
+                        </div>
+                    ))}
+                </Slider>
+            </div>
+        </div>
+    );
+}
+
+export default tem;

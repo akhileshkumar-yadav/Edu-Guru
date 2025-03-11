@@ -7,7 +7,7 @@ const footer = () => {
 
     <>
       {/* Footer container */}
-      <footer className="bg-gray-100 text-center text-surface/75 dark:bg-neutral-700 dark:text-white/75 lg:text-left">
+      <footer className=" text-center text-surface/75 dark:bg-neutral-600 dark:text-white/75 lg:text-left">
         <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-white/10 lg:justify-between">
           <div className="me-12 hidden lg:block">
             <span>Get connected with us on social networks:</span>
@@ -99,7 +99,7 @@ const footer = () => {
               </p>
             </div>
             {/* Products section */}
-            <div className='text-gray-700'>
+            <div className='text-white'>
               <h6 className="mb-4 hover:text-orange-500 flex justify-center font-semibold uppercase md:justify-start">
                 Top College
               </h6>
@@ -119,7 +119,7 @@ const footer = () => {
                 <Link href="#!">Mtech</Link>
               </p>
             </div>
-            <div className='text-gray-700'>
+            <div className='text-white'>
               <h6 className="mb-4 hover:text-orange-500 flex justify-center font-semibold uppercase md:justify-start">
                 Top University
               </h6>
@@ -139,7 +139,7 @@ const footer = () => {
                 <Link href="#!">Mtech</Link>
               </p>
             </div>
-            <div className='text-gray-700'>
+            <div className='text-white'>
               <h6 className="mb-4 hover:text-orange-500  flex justify-center font-semibold uppercase md:justify-start">
                 Top School
               </h6>
@@ -157,7 +157,7 @@ const footer = () => {
               </p>
             </div>
             {/* Contact section */}
-            <div className='text-gray-700'>
+            <div className='text-white'>
               <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
                 Contact
               </h6>
@@ -223,7 +223,7 @@ const footer = () => {
           </div>
         </div>
         {/*Copyright section*/}
-        <div className="bg-black/5 flex items-center  ">
+        <div className="bg-white/5 flex items-center  ">
          
             <Link href="/" className="shrink-0 ">
               <img

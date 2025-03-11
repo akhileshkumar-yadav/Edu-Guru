@@ -15,6 +15,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { AppProvider } from "../context/appcontext";
 import dynamic from "next/dynamic";
 
 const page = () => {
@@ -113,11 +114,11 @@ const page = () => {
        
       <div className='font-sans relative'>
 
-        <div className=' flex md:min-w-[1536px] flex-col md:w-[1536px] slider-container  '>
+        <div className=' flex md:min-w-[1536px] flex-col md:w-[1536px] slider-container overflow-hidden '>
           <Slider {...setting}>
 
-            <div className='  relative'>
-              <img className='lg:min-w-[1536px] md:min-w-[600px] md:h-[510px] min-h-[250px]' src="https://ir.iith.ac.in/assets/images/photo_gallery/WhatsApp%20Image%202022-12-04%20at%207.29.50%20PM.jpeg" alt="" />
+            <div className='  relative '>
+              <img className='lg:min-w-[1536px]  md:min-w-[600px] md:h-[510px] min-h-[250px]' src="https://ir.iith.ac.in/assets/images/photo_gallery/WhatsApp%20Image%202022-12-04%20at%207.29.50%20PM.jpeg" alt="" />
 
               <div className='text-white hover:underline hidden md:block absolute w-20  bottom-1 right-[500px]'>
                 <h1 href={"/"} className='hover:text-yellow-500 text-md  w-[450px]'>Indian Institute of Technology,Roorkee </h1>
@@ -137,9 +138,9 @@ const page = () => {
             </div>
 
           </Slider>
-          <div className='absolute  md:top-[7%] top-[3%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
+          <div className='absolute   md:top-[7%] top-[5%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
             <div className='flex justify-center items-center bg-transparent'>
-              <h1 className=' text-3xl lg:hidden text-white font-semibold '>Find Top University in india</h1>
+              <h1 className=' text-3xl lg:hidden  text-white font-semibold '>Find Top University in india</h1>
               <div className='lg:text-2xl hidden lg:block text-md text-white font-semibold '>
                 <TypeAnimation
                   preRenderFirstString={true}

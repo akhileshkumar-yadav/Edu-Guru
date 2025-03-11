@@ -60,7 +60,7 @@ const ViewUniversity = () => {
 
     const ratingForm = () => {
         if (currentUser !== null) {
-            return <div>
+            return <div className='' >
                 <StarRatings
                     rating={rating}
                     starRatedColor="orange"
@@ -68,7 +68,7 @@ const ViewUniversity = () => {
                     numberOfStars={5}
                 />
                 <textarea className='bg-blue-100 w-full mt-3' ref={reviewRef}></textarea>
-                <button className='bg-blue-900 text-white px-2 font-serif rounded' onClick={submitReview}>Submit Review</button>
+                <button className='bg-blue-900 text-white px-2 font-serif rounded mt-5' onClick={submitReview}>Submit Review</button>
             </div>
         } else {
             return <p>login to give review</p>
@@ -85,7 +85,7 @@ const ViewUniversity = () => {
                 college: id
             }),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type':'application/json'
             }
         });
         console.log(res.status);
@@ -106,14 +106,14 @@ const ViewUniversity = () => {
         return reviews.map((rev) => (
             <>
 
-                <div className="row h-50 shadow mb-4 py-3">
-                    <div className="col-md-1">
+                <div className="row h-50 shadow mb-4  py-3">
+                    <div className="col-md-1 w-[250px] ">
                         <img className='w-16 h-16 rounded-full' src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="" />
 
                     </div>
                     <div className="col-md-9">
                         <p className='text-warning ' style={{ fontFamily: "cursive" }}>{rev.rating}Star</p>
-                        <p className=' fw-semibold fs-5  ' style={{ fontFamily: "serif" }}>{currentUser.name}</p>
+                        <p className=' fw-semibold fs-5  ' style={{ fontFamily: "serif" }}>{rev.name}</p>
                         <p className=' '>{rev.comment}</p>
                     </div>
 
@@ -377,22 +377,21 @@ const ViewUniversity = () => {
                     </div>
                 </div>
             </div>
-            <hr className='mt-3' />
+            <hr className='mt-3'/>
 
             <hr className='mt-3' />
 
-            <div className="container">
+            <div className="container ml-5 w-[30%]">
                 <div className="row card py-3 mb-4 px-4 border-none  shadow">
-                    <div className="col-md-8">
-                        <h2 className="">Reviews And Ratings</h2>
-                        <p className="fs-4 mb-2"></p>
+                    <div className="col-md-8 c">
+                        <h2 className="text-xl text-blue-500 hover:text-blue-800 font-semibold">Reviews And Ratings</h2>
+                        {/* <p className="fs-4 mb-2 ">akhilesh</p> */}
                         {ratingForm()}
-                        {/* <Link to={`/collegeReview/${CollegeList._id}`}><button type="button" className="btn mb-4 btn-outline-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2  dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Add Review</button>
-                        </Link> */}
+                        
                     </div>
                 </div>
             </div>
-            <div className="row ">
+            <div className="flex justify-start overflow-x-auto gap-5">
                 {ReviewsData()}
             </div>
         </div>
