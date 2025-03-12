@@ -3,6 +3,7 @@ import React from 'react'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import classess from "./tem.module.css"
 
 const NextArrow = (props) => {
     const { className, style, onClick } = props;
@@ -13,7 +14,9 @@ const NextArrow = (props) => {
                 ...style, 
                 display: "block", 
                 background: "orange", 
-                borderRadius: "50%" 
+                borderRadius: "50%", 
+                marginRight:"12px", 
+                zIndex:"10"
             }}
             onClick={onClick}
         />
@@ -29,7 +32,9 @@ const PrevArrow = (props) => {
                 ...style, 
                 display: "block", 
                 background: "orange", 
-                borderRadius: "50%" 
+                borderRadius: "50%",
+                marginLeft:"12px", 
+                zIndex:"10"
             }}
             onClick={onClick}
         />
@@ -61,11 +66,11 @@ const tem = () => {
     ];
 
     return (
-        <div className='m-auto w-3/4 my-10'>
-            <div className='mt-20'>
+        <div className={classess.myCarousel}>
+            <div style={{}} className={classess.slickSlide}>
                 <Slider {...settings}>
                     {data.map((item) => (
-                        <div key={item.id} className='  text-black ml-5 rounded-2xl my-2 h-[450px] shadow-lg'>
+                        <div key={item.id} className=' text-black  rounded-2xl my-2   h-[450px] shadow-lg'>
                             <div className='flex justify-center items-center  rounded-2xl bg-indigo-400 h-56'>
                                 <img src={item.image} alt={item.name} className='rounded-full w-32 h-32' />
                             </div>

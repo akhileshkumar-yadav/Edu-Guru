@@ -52,7 +52,6 @@ const Login = () => {
   })
   return (
     <div>
-      <>
   {/* Hello world */}
   <div className=" font-[sans-serif]">
     <div className="h-[100vh] flex  flex-col items-center justify-center">
@@ -267,9 +266,7 @@ const Login = () => {
       </div>
     </div>
   </div>
-</>
-
-    </div>
+</div>
   )
 }
 

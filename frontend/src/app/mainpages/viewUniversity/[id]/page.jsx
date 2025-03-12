@@ -60,14 +60,14 @@ const ViewUniversity = () => {
 
     const ratingForm = () => {
         if (currentUser !== null) {
-            return <div className='' >
+            return <div className='md:flex flex-wrap justify-start items-center mb-5 space-x-32' >
                 <StarRatings
                     rating={rating}
                     starRatedColor="orange"
                     changeRating={setRating}
                     numberOfStars={5}
                 />
-                <textarea className='bg-blue-100 w-full mt-3' ref={reviewRef}></textarea>
+                <textarea className='bg-blue-100 w-[30%] mt-3 pl-2 border outline-none border-blue-400' placeholder='Please give me Feedback' ref={reviewRef}></textarea>
                 <button className='bg-blue-900 text-white px-2 font-serif rounded mt-5' onClick={submitReview}>Submit Review</button>
             </div>
         } else {
@@ -379,12 +379,10 @@ const ViewUniversity = () => {
             </div>
             <hr className='mt-3'/>
 
-            <hr className='mt-3' />
-
-            <div className="container ml-5 w-[30%]">
+            <div className="container mx-[10%] mt-5 w-[80%]">
                 <div className="row card py-3 mb-4 px-4 border-none  shadow">
                     <div className="col-md-8 c">
-                        <h2 className="text-xl text-blue-500 hover:text-blue-800 font-semibold">Reviews And Ratings</h2>
+                        <h2 className="text-2xl text-blue-500 hover:text-blue-800 mb-5 font-semibold">Reviews And Ratings</h2>
                         {/* <p className="fs-4 mb-2 ">akhilesh</p> */}
                         {ratingForm()}
                         
@@ -394,6 +392,52 @@ const ViewUniversity = () => {
             <div className="flex justify-start overflow-x-auto gap-5">
                 {ReviewsData()}
             </div>
+
+            
+            {/* <div className="my-10 w-[80%] m-auto">
+                <div style={{}} className="my-10">
+                    <Slider {...settings2}>
+                        {listing.map((item) => (
+                            <div key={item.id} className=' text-black  rounded-2xl my-2   h-[470px] shadow-lg'>
+                                <div className='flex justify-center items-center  relative rounded-t-2xl bg-gray-200 h-52'>
+                                    <img src={item.image2} className='w-full opacity-85 rounded-t-2xl h-52' alt="imgage2" />
+                                    <div className='absolute flex items-center space-x-3 text-white font-semibold text-xl bottom-10 left-5'>
+                                        <div className='h-12 w-12 rounded-[50%] flex justify-center items-center'>
+                                            <img src={item.image} className='h-10 w-10 rounded-[50%]' alt="image" />
+                                        </div>
+                                        <div className=''>{item.universityName}</div>
+                                    </div>
+                                </div>
+                                <div className='p-4  flex justify-center w-full h-16 text-gray-800 bg-slate-50 font-medium'>
+                                Courses:
+                                    <h2 className='text-gray-600 text-md font-semibold w-full '> {item.courses}</h2>
+                                </div>
+                                <hr />
+                                <div className='flex items-center  h-10 font-medium hover:text-orange-400 justify-start'>
+                                   <div className=' text-lg ml-10 hover:text-orange-400 flex justify-around   items-center  text-gray-500'>info <FiChevronRight className="text-gray-500 ml-[202px] hover:text-orange-400 text-lg" /></div>
+                                   
+                                </div>
+                                <hr />
+                                <div className='flex items-center  h-10 font-medium hover:text-orange-400 justify-start'>
+                                   <div className=' text-lg ml-10 hover:text-orange-400 flex justify-around   items-center  text-gray-500'>Fee <FiChevronRight className="text-gray-500 ml-[205px] hover:text-orange-400 text-lg" /></div>
+                                   
+                                </div>
+                                <hr />
+                                <div className='flex items-center  h-10 font-medium hover:text-orange-400 justify-start'>
+                                   <div className=' text-lg ml-10 hover:text-orange-400 flex justify-around   items-center  text-gray-500'>Courses <FiChevronRight className="text-gray-500 ml-[170px] hover:text-orange-400 text-lg" /></div>
+                                   
+                                </div>
+                                <hr />
+                                <div className='flex items-center  h-10 font-medium hover:text-orange-400 justify-start'>
+                                   <div className=' text-lg ml-10 hover:text-orange-400 flex justify-around   items-center  text-gray-500'>Admission Info <FiChevronRight className="text-gray-500 ml-[112px] hover:text-orange-400 text-lg" /></div>
+                                   
+                                </div>
+                                <hr />
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
+            </div> */}
         </div>
     )
 }

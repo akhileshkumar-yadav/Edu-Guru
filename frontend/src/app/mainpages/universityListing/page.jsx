@@ -7,10 +7,46 @@ import Slider from 'react-slick'
 import { SlArrowRight } from "react-icons/sl";
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import { RiFindReplaceLine } from "react-icons/ri";
+import { FiChevronRight } from "react-icons/fi";
 import { TypeAnimation } from 'react-type-animation';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const NextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{
+                ...style,
+                display: "block",
+                background: "orange",
+                borderRadius: "50%",
+                marginRight: "12px",
+                zIndex: "10"
+            }}
+            onClick={onClick}
+        />
+    );
+};
+
+const PrevArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{
+                ...style,
+                display: "block",
+                background: "orange",
+                borderRadius: "50%",
+                marginLeft: "12px",
+                zIndex: "10"
+            }}
+            onClick={onClick}
+        />
+    );
+};
 const UniversityListing = () => {
     const [inputValue, setInputValue] = useState('')
     const [listing, setListing] = useState([])
@@ -43,6 +79,15 @@ const UniversityListing = () => {
         autoplaySpeed: 2000,
         cssEase: "linear"
     };
+    const settings2 = {
+        // dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />
+    };
     const fetchRoadmapListing = () => {
         axios.get('http://localhost:5000/admin/adduniversity/getall')
             .then((result) => {
@@ -65,24 +110,24 @@ const UniversityListing = () => {
         if (inputValue.trim() === '') {
             console.log('Input field is empty. No filtering applied.');
             return; // Exit if input is empty
-          }
-          
+        }
+
         setListing(listing.filter((listing) => {
-          return (listing.universityName.toLowerCase().includes(inputValue.toLowerCase()))
+            return (listing.universityName.toLowerCase().includes(inputValue.toLowerCase()))
         }))
-      }
-    
-      const filterByCategory = (listing) => {
+    }
+
+    const filterByCategory = (listing) => {
         console.log(listing);
         const filteredListing = filterListing.filter(col => col.courses.toLowerCase().includes(listing.toLowerCase()))
         setListing(filteredListing)
-        
-      }
-      
+
+    }
+
 
     return (
         <div className='relative '>
-            <div className=' flex  flex-col md:min-w-[600px]  lg:max-w-[1535px] slider-container  '>
+            <div className=' flex  flex-col md:min-w-[600px] overflow-x-hidden lg:max-w-[1535px] slider-container  '>
                 <Slider {...setting}>
 
                     <div className='relative'>
@@ -153,7 +198,7 @@ const UniversityListing = () => {
             <div className='md:ml-36 my-3'>
                 <h1 className='text-3xl font-semibold text-gray-900'>Top University</h1>
             </div>
-             
+
             <div className=' flex-row md:ml-36 justify-start border p-3 overflow-x-scroll rounded-sm border-gray-400  w-[80%] '>
                 <Slider {...settings}>
 
@@ -162,7 +207,7 @@ const UniversityListing = () => {
 
                     </div>
                     </button>
-                    <button onClick={(e) => filterByCategory('Mtech')}  className='overflow-x' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[90px]'>
+                    <button onClick={(e) => filterByCategory('Mtech')} className='overflow-x' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[90px]'>
                         <h1 className='border-[2px]  px-3 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 py-1 pl-2 ml-4 rounded-3xl w-[80px]'>M-tech</h1>
                     </div>
                     </button>
@@ -178,7 +223,7 @@ const UniversityListing = () => {
                         <h1 className='border-[2px] py-[3px]  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>MBA</h1>
                     </div>
                     </button>
-                    
+
                     <button onClick={(e) => filterByCategory('BCA')} href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
                         <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>BCA </h1>
                     </div>
@@ -189,7 +234,7 @@ const UniversityListing = () => {
                     </div>
                     </button>
 
-                    
+
                 </Slider>
 
             </div>
@@ -239,68 +284,53 @@ const UniversityListing = () => {
             <hr className='my-6' />
 
             {/*  card */}
-            <div className='md:mx-36  border lg:max-w-[80%]'>
-            <h1 className='text-3xl my-3  text-gray-900 font-semibold md:mx-7'>Top Five University</h1>
-            <div className=' mb-3 px-3 lg:max-w-[100%]'>
-                <div className='flex overflow-x-auto  gap-6'>
-                    {
-                        card.map((item, index) => {
-                            if(index<5){
-                        return  <div className=" flex-col  min-h-[410px] border min-w-[340px] rounded-md mb-3 gap-4">
-                        <div className='w-[full] relative  h-[130px] rounded-md'>
-                            {/* background image */}
-                            <img className='w-[340px] h-[140px] rounded-t-md object-cover' src={item.image2} alt="" />
-                             <div className='absolute top-9 left-3 bg-transparent rounded-t-md  h-[100px]    text-md text-white font-semibold uppercase p-1 '>
-                             <Link href={'/mainpages/viewUniversity/' + item._id}>
-                             <div className='flex justify-between items-center gap-2'>
-                                <div className='h-[50px] w-[50px]  flex justify-center items-center border rounded-[50%]'> <img className='h-[40px] w-[42px]  rounded-[50%]' src={item.image} alt="" /></div>
-                                <h1 >{item.universityName} </h1>
-                                {/* adddress */}
-                                </div>
-                                <h1 className='text-sm  text-white text-md font-semibold md:ml-10'>{item.universityAddress}</h1></Link>
-                                {/* adddress */}
-
-                            </div>
-                        </div>
-                        <div className=' flex-col w-full  gap-4 h-[70px]'>
-                            <h1 className='text-md ml-3 text-gray-500 cursor-pointer mt-3 mr-4 hover:text-orange-500  '> Courses = {item.courses} </h1>
-                        </div>
-                        <hr />
-                        <div className=' flex-col gap-4'>
-                            <div className='flex justify-between   text-gray-500 items-center'>
-                                <h1 className='text-md ml-3 '>  Ranked 4 out of 444</h1>
-                            </div>
-                            <hr className='mt-3' />
-                            <Link href={'/mainpages/viewUniversity/' + item._id}><div className='flex justify-between py-2 hover:text-orange-500  text-gray-500 items-center'>
-                                <h1 className='  text-[16px] font-medium ml-3'>University-info</h1>
-                                {/* grater then ka sign svg me  */}
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className='h-5 w-6 font-normal   mr-3'>
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                            </Link>
-                            <hr />
-                            <div className='flex justify-between py-2 hover:text-orange-500  text-gray-500 items-center'>
-                                <h1 className=' text-[16px] font-medium ml-3'>University-courses</h1>
-                                {/* grater then ka sign svg me  */}
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className='h-5 w-6 font-normal   mr-3'>
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                            <hr />
-                            <div className='flex justify-between py-2 hover:text-orange-500  text-gray-500 items-center'>
-                                <h1 className=' text-[16px] font-medium ml-3'>University-fee</h1>
-                                {/* grater then ka sign svg me  */}
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className='h-5 w-6 font-normal   mr-3'>
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                       }}
-                    )}
-                </div>
+            <div className='md:mx-36  lg:max-w-[80%]'>
+                <h1 className='text-3xl my-3  text-gray-900 font-semibold md:mx-7'>Top Five University</h1>
             </div>
+            <div className="my-10 w-[80%] m-auto">
+                <div style={{}} className="my-10">
+                    <Slider {...settings2}>
+                        {listing.map((item) => (
+                            <div key={item.id} className=' text-black  rounded-2xl my-2   h-[470px] shadow-lg'>
+                                <div className='flex justify-center items-center  relative rounded-t-2xl bg-gray-200 h-52'>
+                                    {/* <img src={item.image2} alt={item.name} className='rounded-full w-32 h-32' /> */}
+                                    <img src={item.image2} className='w-full opacity-85 rounded-t-2xl h-52' alt="imgage2" />
+                                    <div className='absolute flex items-center space-x-3 text-white font-semibold text-xl bottom-10 left-5'>
+                                        <div className='h-12 w-12 rounded-[50%] flex justify-center items-center'>
+                                            <img src={item.image} className='h-10 w-10 rounded-[50%]' alt="image" />
+                                        </div>
+                                        <div className=''>{item.universityName}</div>
+                                    </div>
+                                </div>
+                                <div className='p-4  flex justify-center w-full h-16 text-gray-800 bg-slate-50 font-medium'>
+                                Courses:
+                                    <h2 className='text-gray-600 text-md font-semibold w-full '> {item.courses}</h2>
+                                </div>
+                                <hr />
+                                <div className='flex items-center  h-10 font-medium hover:text-orange-400 justify-start'>
+                                   <div className=' text-lg ml-10 hover:text-orange-400 flex justify-around   items-center  text-gray-500'>info <FiChevronRight className="text-gray-500 ml-[202px] hover:text-orange-400 text-lg" /></div>
+                                   
+                                </div>
+                                <hr />
+                                <div className='flex items-center  h-10 font-medium hover:text-orange-400 justify-start'>
+                                   <div className=' text-lg ml-10 hover:text-orange-400 flex justify-around   items-center  text-gray-500'>Fee <FiChevronRight className="text-gray-500 ml-[205px] hover:text-orange-400 text-lg" /></div>
+                                   
+                                </div>
+                                <hr />
+                                <div className='flex items-center  h-10 font-medium hover:text-orange-400 justify-start'>
+                                   <div className=' text-lg ml-10 hover:text-orange-400 flex justify-around   items-center  text-gray-500'>Courses <FiChevronRight className="text-gray-500 ml-[170px] hover:text-orange-400 text-lg" /></div>
+                                   
+                                </div>
+                                <hr />
+                                <div className='flex items-center  h-10 font-medium hover:text-orange-400 justify-start'>
+                                   <div className=' text-lg ml-10 hover:text-orange-400 flex justify-around   items-center  text-gray-500'>Admission Info <FiChevronRight className="text-gray-500 ml-[112px] hover:text-orange-400 text-lg" /></div>
+                                   
+                                </div>
+                                <hr />
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
             </div>
             <hr className='my-5' />
         </div>
