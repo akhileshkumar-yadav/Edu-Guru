@@ -171,12 +171,12 @@ const Login = () => {
                 </label>
               </div>
               <div>
-                <a
-                  href="jajvascript:void(0);"
+                <Link
+                  href="/mainpages/forgot-password"
                   className="text-blue-600 font-semibold text-sm hover:underline"
                 >
                   Forgot Password?
-                </a>
+                </Link>
               </div>
             </div>
             <div className="mt-12">

@@ -1,4 +1,4 @@
-const { Schema, model, Types } = require("../Connection");
+const { Schema, model, Types } = require("../connection");
 
 const reviewsSchema = new Schema({
   name: String,

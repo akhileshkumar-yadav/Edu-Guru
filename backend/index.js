@@ -8,6 +8,8 @@ const AdminRouter = require('./routers/admin')
 const AddcollegeRouter = require('./routers/addcollege')
 const AdduniversityRouter = require('./routers/adduniversity')
 const ReviewandratingRouter= require("./routers/Review")
+const userRouter = require('./routers/userRouter');
+const passRouter = require('./routers/passRouter');
 
 app.use(express.json())
 app.use(cors({
@@ -18,6 +20,8 @@ app.use(cors({
  app.use('/admin/addcollege',AddcollegeRouter)
  app.use('/admin/adduniversity',AdduniversityRouter)
  app.use("/reviews",ReviewandratingRouter)
+ app.use('/user', userRouter);
+ app.use('/pass', passRouter); 
 
 app.listen(port, () => {
     console.log(`server is succesfully run ${port}`);

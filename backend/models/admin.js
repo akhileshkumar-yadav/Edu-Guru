@@ -1,4 +1,4 @@
-const {Schema,model} = require('../Connection')
+const {Schema,model} = require('../connection')
 
 const userSchema = new Schema({
     name:String,

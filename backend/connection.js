@@ -1,14 +1,13 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-const url ='mongodb+srv://yadav:222226@cluster0.c4vlfxy.mongodb.net/mejorProject?retryWrites=true&w=majority&appName=Cluster0'
+const url = process.env.MONGODB_URL
+
 mongoose.connect(url)
+    .then((result) => {
+        console.log('Connected to DB...!!!');
+    }).catch((err) => {
+        console.log(err);
+    });
 
-.then((result) => {
-    console.log('database to connect');
-    
-    
-}).catch((err) => {
-    console.log(err);
-    
-});
- module.exports = mongoose;
+module.exports = mongoose;
