@@ -10,6 +10,10 @@ const AdduniversityRouter = require('./routers/adduniversity')
 const ReviewandratingRouter= require("./routers/Review")
 const userRouter = require('./routers/userRouter');
 const passRouter = require('./routers/passRouter');
+const upbordRouter = require('./routers/addupBord')
+const cbsebordRouter = require('./routers/addcbseBord')
+const icsebordRouter = require('./routers/addicseBord')
+
 
 app.use(express.json())
 app.use(cors({
@@ -22,6 +26,9 @@ app.use(cors({
  app.use("/reviews",ReviewandratingRouter)
  app.use('/user', userRouter);
  app.use('/pass', passRouter); 
+ app.use('/admin/addupBord', upbordRouter); 
+ app.use('/admin/addcbseBord', cbsebordRouter); 
+ app.use('/admin/addicseBord', icsebordRouter); 
 
 app.listen(port, () => {
     console.log(`server is succesfully run ${port}`);

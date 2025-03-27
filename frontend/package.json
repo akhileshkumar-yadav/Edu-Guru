@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.14.2",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/icons-material": "^6.1.10",
     "@react-google-maps/api": "^2.20.6",
     "axios": "^1.7.7",
     "formik": "^2.4.6",
+    "lucide-react": "^0.483.0",
     "next": "15.0.3",
     "preline": "^2.5.1",
     "react": "19.0.0-rc-7ac8e612-20241113",

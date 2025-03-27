@@ -69,14 +69,14 @@ const CollegeListing = () => {
 
     return (
         <div className='relative w-full'>
-            <div className=' flex  flex-col md:w-[1535px] slider-container  '>
+            <div className=' flex  flex-col md:min-w-[600px] overflow-x-hidden lg:max-w-[1535px] slider-container'>
                 <Slider {...setting}>
 
-                    <div className=' relative'>
+                    <div className='relative'>
                         <img className='lg:min-w-[1535px] md:min-w-[600px] md:h-[510px] min-h-[250px]' src="https://ir.iith.ac.in/assets/images/photo_gallery/WhatsApp%20Image%202022-12-04%20at%207.29.50%20PM.jpeg" alt="" />
 
-                        <div className='text-white hover:underline absolute w-20  bottom-1 right-[500px]'>
-                            <h1 href={"/"} className='hover:text-yellow-500 text-md  w-[450px]'>Indian Institute of Technology,Roorkee </h1>
+                        <div className='text-white hover:underline absolute w-20 bottom-1 right-[500px]'>
+                            <h1 href={"/"} className='hover:text-yellow-500 text-md w-[450px]'>Indian Institute of Technology,Roorkee </h1>
                         </div>
                     </div>
 
@@ -84,7 +84,7 @@ const CollegeListing = () => {
 
                     <div className=' relative'>
                         <img className='lg:min-w-[1535px] md:min-w-[600px] md:h-[510px] min-h-[250px]' src="https://ir.iith.ac.in/assets/images/home/Jaykishan%20Pipaliya.jpeg" alt="" />
-                        <div className='text-white hover:underline absolute w-20  bottom-1 right-[500px]'>
+                        <div className='text-white hover:underline absolute w-20 bottom-1 right-[500px]'>
                             <h1 href={"/"} className='hover:text-yellow-500 text-md  w-[450px]'>Shri Ram College of Commerce,New Delhi</h1>
                         </div>
                     </div>
@@ -167,9 +167,9 @@ const CollegeListing = () => {
 
             </div>
             <hr className='my-3' />
-            <div className='md:ml-36  flex h-[45px] justify-start   w-[80%] bg-[#506c73]'>
+            <div className='md:ml-36  flex h-[45px] justify-start w-[80%] bg-[#506c73]'>
                 <div className='border-e border-s flex justify-start items-center'>
-                    <h1 className='text-white text-[18px] w-[100px]  ml-4 '>Rank</h1>
+                    <h1 className='text-white text-[18px] w-[100px] ml-4 '>Rank</h1>
                 </div>
                 <div className='border-r flex justify-start items-center'>
                     <h1 className='text-white text-[18px] w-[485px] ml-2'>College</h1>
@@ -191,7 +191,7 @@ const CollegeListing = () => {
                             return 'bg-white'
                         }
                     }
-                    return <div className={`md:ml-36 h-[100px] flex  justify-start font-sans  w-[80%]  ${backgroundcolor(index + 1) }  `} key={item._id}>
+                    return <div className={`md:ml-36 h-[100px] flex  justify-start font-sans  w-[80%]  ${backgroundcolor(index + 1) } `} key={item._id}>
                         <div className='border-e border-s flex justify-start  items-start'>
                             <h1 className='text-gray-600 text-[18px] w-[100px]  ml-4 '>#{index + 1}</h1>
                         </div>
@@ -208,7 +208,7 @@ const CollegeListing = () => {
                         </div>
                         </Link>
                         </div>
-                        <div className='border-r flex  justify-start items-start'>
+                        <div className='border-r flex justify-start items-start'>
                             <h1 className='text-gray-500 mt-3 text-[18px] w-[300px] ml-2'>{item.courses}</h1>
                         </div>
                         <div className='border-r flex  justify-start items-start'>

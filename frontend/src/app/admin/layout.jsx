@@ -1,11 +1,6 @@
 'use client'
-// import "../globals.css";
-// import Footer from "./footer"
 import { Toaster } from "react-hot-toast";
 import Sidebar from "./sidebar";
-
-// import Navbar from "../navbar";
-// import { AppProvider } from "../context/appcontext";
 
 
 export default function RootLayout({ children }) {
@@ -25,14 +20,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-         {/* <AppProvider> */}
          
         <Toaster position="top-right " />
         <Sidebar />
         {children}
         
-        {/* <Footer /> */}
-        {/* </AppProvider> */}
       </body>
     </html>
   );

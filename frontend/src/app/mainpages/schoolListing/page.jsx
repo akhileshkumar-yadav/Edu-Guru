@@ -36,7 +36,7 @@ const UniversityListing = () => {
     const settings = {
 
         infinite: true,
-        slidesToShow: 10,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         speed: 3000,
@@ -65,20 +65,20 @@ const UniversityListing = () => {
         if (inputValue.trim() === '') {
             console.log('Input field is empty. No filtering applied.');
             return; // Exit if input is empty
-          }
-          
+        }
+
         setListing(listing.filter((listing) => {
-          return (listing.universityName.toLowerCase().includes(inputValue.toLowerCase()))
+            return (listing.universityName.toLowerCase().includes(inputValue.toLowerCase()))
         }))
-      }
-    
-      const filterByCategory = (listing) => {
+    }
+
+    const filterByCategory = (listing) => {
         console.log(listing);
         const filteredListing = filterListing.filter(col => col.courses.toLowerCase().includes(listing.toLowerCase()))
         setListing(filteredListing)
-        
-      }
-      
+
+    }
+
 
     return (
         <div className='relative '>
@@ -86,10 +86,10 @@ const UniversityListing = () => {
                 <Slider {...setting}>
 
                     <div className='relative'>
-                        <img className='lg:min-w-[1535px] md:min-w-[600px] md:h-[570px] min-h-[250px]' src="https://media.istockphoto.com/id/1257574456/photo/modern-school-exterior-3d-illustration.jpg?s=612x612&w=0&k=20&c=1vy2zhje52B2LfHXtOC-PJ1OFsu3gjfVwu_SXnTExxw=" alt="" />
+                        <img className='lg:min-w-[1535px] md:min-w-[600px] md:h-[570px] min-h-[250px]' src="https://media.istockphoto.com/id/1257574456/photo/modern-school-exterior-3d-illustration.jpg?s=612x612&w=0&k=20&c=1vy2zhje52B2LfHXtOC-PJ1OFsu3gjfVwu_SXnTExxw=" alt="image" />
 
                         <div className='text-white hover:underline absolute w-20  bottom-1 lg:right-[300px] md:right-[250px] right-[100px]'>
-                            <h1 href={"/"} className='hover:text-yellow-500 text-lg   w-[350px]'>K.V.S 
+                            <h1 href={"/"} className='hover:text-yellow-500 text-lg  w-[350px]'>K.V.S
                                 Ayodhya </h1>
                         </div>
                     </div>
@@ -97,20 +97,20 @@ const UniversityListing = () => {
 
 
                     <div className=' relative'>
-                        <img className='lg:min-w-[1535px] md:min-w-[600px] md:h-[570px] min-h-[250px]' src="https://media.istockphoto.com/id/171306436/photo/red-brick-high-school-building-exterior.jpg?s=612x612&w=0&k=20&c=vksDyCVrfCpvb9uk4-wcBYu6jbTZ3nCOkGHPSgNy-L0=" alt="" />
+                        <img className='lg:min-w-[1535px] md:min-w-[600px] md:h-[570px] min-h-[250px]' src="https://media.istockphoto.com/id/171306436/photo/red-brick-high-school-building-exterior.jpg?s=612x612&w=0&k=20&c=vksDyCVrfCpvb9uk4-wcBYu6jbTZ3nCOkGHPSgNy-L0=" alt="image" />
                         <div className='text-white hover:underline absolute w-20  bottom-1 lg:right-[300px] md:right-[250px] right-[100px]'>
                             <h1 href={"/"} className='hover:text-yellow-500 text-lg  w-[350px]'>Lucknow Public School </h1>
                         </div>
                     </div>
                     <div className=' relative'>
-                        <img className='lg:min-w-[1535px] md:min-w-[600px] md:h-[570px] min-h-[250px]' src="https://media.istockphoto.com/id/156919428/photo/brandywine-heights-high-school-in-topton-pennsylvania.jpg?s=612x612&w=0&k=20&c=sQnVkYlvQQjBB_GIPrnqahzaiL6j1_JlzuCnFwPe4Y8=" alt="" />
+                        <img className='lg:min-w-[1535px] md:min-w-[600px] md:h-[570px] min-h-[250px]' src="https://media.istockphoto.com/id/156919428/photo/brandywine-heights-high-school-in-topton-pennsylvania.jpg?s=612x612&w=0&k=20&c=sQnVkYlvQQjBB_GIPrnqahzaiL6j1_JlzuCnFwPe4Y8=" alt="image" />
                         <div className='text-white hover:underline absolute w-20  bottom-1 lg:right-[300px] md:right-[250px] right-[100px]'>
                             <h1 href={"/"} className='hover:text-yellow-500 text-md  w-[350px]'>Central Acadmy</h1>
                         </div>
                     </div>
 
                 </Slider>
-                <div className='absolute   md:top-[7%] top-[3%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
+                <div className='absolute md:top-[27%] top-[3%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] '>
                     <div className='flex justify-center items-center bg-transparent'>
                         <h1 className=' text-xl lg:hidden text-white font-semibold '>Find Top University in india</h1>
                         <div className='lg:text-2xl hidden lg:block text-md text-white font-semibold '>
@@ -141,7 +141,7 @@ const UniversityListing = () => {
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                             placeholder='Search for colleges' />
-                        <button onClick={applysearch} className='bg-orange-400  lg:w-[15%] w-[35%]  border-none h-[100%] text-white'>Search</button> 
+                        <button onClick={applysearch} className='bg-orange-400  lg:w-[15%] w-[35%]  border-none h-[100%] text-white'>Search</button>
                     </div>
                 </div>
 
@@ -151,158 +151,96 @@ const UniversityListing = () => {
 
             {/* courses */}
             <div className='md:ml-36 my-3'>
-                <h1 className='text-3xl font-semibold text-gray-900'>Top University</h1>
-            </div>
-             
-            <div className='md:w-[80%] ml-3 mr-3 border p-3 md:ml-36  rounded-sm border-gray-400 overflow-x-auto mb-3'>
-            <div className=' flex-row  justify-start  min-w-[1068px]   '>
-                <Slider className='' {...settings}>
-                    <button onClick={(e) => filterByCategory('btech')} className='overflow-x' ><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[90px]'>
-                        <h1 className='border-[2px] py-1 px-2 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 rounded-3xl w-[80px]'>Btech</h1>
-
-                    </div>
-                    </button> 
-                    <button onClick={(e) => filterByCategory('Mtech')}  className='overflow-x' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[90px]'>
-                        <h1 className='border-[2px]  px-3 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 py-1 pl-2 ml-4 rounded-3xl w-[80px]'>M-tech</h1>
-                    </div>
-                    </button>
-                    <button onClick={(e) => filterByCategory('BA')} className='overflow-x' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
-                        <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>BA</h1>
-                    </div>
-                    </button>
-                    <button onClick={(e) => filterByCategory('BBA')} className='' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
-                        <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>BBA</h1>
-                    </div>
-                    </button>
-                    <button onClick={(e) => filterByCategory('MBA')} href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
-                        <h1 className='border-[2px] py-[3px]  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>MBA</h1>
-                    </div>
-                    </button>
-                    <button onClick={(e) => filterByCategory('BCA')} href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
-                        <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>BCA </h1>
-                    </div>
-                    </button>
-
-                    <button onClick={(e) => filterByCategory('B.Com')} href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
-                        <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[80px]'>B.Com</h1>
-                    </div>
-                    </button>
-
-
-                </Slider>
-
-            </div>
+                <h1 className='text-3xl font-semibold text-gray-700'>All School Bords</h1>
             </div>
 
-            <hr className='my-3' />
-            {/*  college listing name */}
-            <div className="overflow-x-scroll lg:overflow-x-auto ">
-                <table className="w-[80%] md:mx-36 border-collapse border overflow-x-auto  border-gray-200">
-                    <thead>
-                        <tr className="bg-[#506c73] text-white text-[18px] h-[50px] font-normal">
-                            <th className="px-4 py-2 text-white text-[18px] font-normal text-left ">Rank</th>
-                            <th className="pl-4 py-2 text-white text-[18px] font-normal max-w-[70px] text-left"></th>
-                            <th className="px-4 py-2 text-white text-[18px] font-normal max-w-[270px] text-left">University-Name</th>
-                            <th className="px-4 py-2 text-white text-[18px] font-normal  max-w-[200px]: text-left">Courses</th>
-                            <th className="px-4 py-2  text-white text-[18px] font-normal max-w-[120px]: text-left">College-Details</th>
+            {/* <div className='md:w-[80%] ml-3 mr-3 border p-3 md:ml-36  rounded-sm border-gray-400  mb-3'>
+                <div className=' flex-row  justify-start  min-w-[1068px]   '>
+                    <Slider className='' {...settings}>
+                        <button onClick={(e) => filterByCategory('btech')} className='overflow-x' ><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[110px]'>
+                            <h1 className='border-[2px] py-1 px-2 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 rounded-3xl w-[100px]'>UP-Bord</h1>
 
-                        </tr>
-                    </thead>
-                    <tbody className=''>
-                        {
-
-                            listing.map((item, index) => {
-                                const backgroundcolor = (items) => {
-                                    if ((items) % 2 === 0) {
-                                        return 'bg-gray-100'
-                                    }
-                                    else {
-                                        return 'bg-white'
-                                    }
-                                }
-                                return <tr className={`h-[100px] ${backgroundcolor(index + 1)} `} key={item._id} >
-                                    <td className="px-4 py-2 ">#{index + 1}</td>
-                                    <td className="pl-4 py-2 max-w-[70px]"><div className='flex justify-center items-center h-[50px] ml-3 w-[50px] rounded-[50%]  border '>
-                                        <img className='h-[33px] w-[33px]  rounded-[50%] overflow-hidden ' src={item.image} alt="" />
-                                    </div></td>
-
-                                    <td className="pr-4 py-2  max-w-[290px] min-w-[250px] text-sm md:text-[18px]  font-[550] text-[#84c3d3] "><Link href={'/mainpages/viewUniversity/' + item._id}> {item.universityName} <h1 className='text-sm font-normal text-gray-600 md:overflow-auto overflow-hidden'>{item.universityAddress} </h1> </Link></td>
-
-                                    <td className="px-4 py-2 max-w-[200px] text-gray-500 mt-3 md:text-[18px] text-[17px] ">{item.courses}</td>
-                                    <td className="px-4 py-2 text-lg text-gray-500 max-w-[120px] ">{item.universityDetail}</td>
-                                </tr>
-                            })}
-                    </tbody>
-                </table>
-            </div>
-
-            <hr className='my-6' />
-
-            {/*  card */}
-            <div className='md:mx-36  border lg:max-w-[80%]'>
-            <h1 className='text-3xl my-3  text-gray-900 font-semibold md:mx-7'>Top Five University</h1>
-            <div className=' mb-3 px-3 lg:max-w-[100%]'>
-                <div className='flex overflow-x-auto  gap-6'>
-                    {
-                        card.map((item, index) => {
-                            if(index<5){
-                        return  <div className=" flex-col  min-h-[410px] border min-w-[340px] rounded-md mb-3 gap-4">
-                        <div className='w-[full] relative  h-[130px] rounded-md'>
-                            {/* background image */}
-                            <img className='w-[340px] h-[140px] rounded-t-md object-cover' src={item.image2} alt="" />
-                             <div className='absolute top-9 left-3 bg-transparent rounded-t-md  h-[100px]    text-md text-white font-semibold uppercase p-1 '>
-                             <Link href={'/mainpages/viewUniversity/' + item._id}>
-                             <div className='flex justify-between items-center gap-2'>
-                                <div className='h-[50px] w-[50px]  flex justify-center items-center border rounded-[50%]'> <img className='h-[40px] w-[42px]  rounded-[50%]' src={item.image} alt="" /></div>
-                                <h1 >{item.universityName} </h1>
-                                {/* adddress */}
-                                </div>
-                                <h1 className='text-sm  text-white text-md font-semibold md:ml-10'>{item.universityAddress}</h1></Link>
-                                {/* adddress */}
-
-                            </div>
                         </div>
-                        <div className=' flex-col w-full  gap-4 h-[70px]'>
-                            <h1 className='text-md ml-3 text-gray-500 cursor-pointer mt-3 mr-4 hover:text-orange-500  '> Courses = {item.courses} </h1>
+                        </button>
+                        <button onClick={(e) => filterByCategory('Mtech')} className='overflow-x' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[120px]'>
+                            <h1 className='border-[2px]  px-3 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 py-1 pl-2 ml-4 rounded-3xl w-[110px]'>CBSC-Bord</h1>
                         </div>
-                        <hr />
-                        <div className=' flex-col gap-4'>
-                            <div className='flex justify-between   text-gray-500 items-center'>
-                                <h1 className='text-md ml-3 '>  Ranked 4 out of 444</h1>
+                        </button>
+
+                        <button onClick={(e) => filterByCategory('BCA')} href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[110px]'>
+                            <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[100px]'>ICSE-Bord </h1>
+                        </div>
+                        </button>
+
+                    </Slider>
+
+                </div>
+
+            </div> */}
+            <div className=' md:mx-40 overflow-hidden  my-5'>
+                <div className='md:flex  mb-4 flex-wrap justify-start items-center'>
+                    <div className='h-[270px] flex-col relative md:w-[380px]  w-[360px] rounded-md bg-gradient-to-b from-indigo-100 hover:shadow-indigo-300 shadow-md  hover:border-indigo-300  border-gray-300 border-2'>
+                        <div className='flex'>
+
+                            <div className='w-[250px]   h-[100px] '>
+                                <h1 className='ml-14 mt-9 text-ls md:text-xl hover:text-orange-500 font-semibold text-gray-700'>UP-Bord schools</h1>
+                                <p className='ml-14 pt-4  text-gray-400 text-sm font-medium'>UP-Bord school ranked based on real data</p>
+
                             </div>
-                            <hr className='mt-3' />
-                            <Link href={'/mainpages/viewUniversity/' + item._id}><div className='flex justify-between py-2 hover:text-orange-500  text-gray-500 items-center'>
-                                <h1 className='  text-[16px] font-medium ml-3'>University-info</h1>
-                                {/* grater then ka sign svg me  */}
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className='h-5 w-6 font-normal   mr-3'>
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
+                            <div className='h-[100px]'>
+                                <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="\—Pngtree—illustration of graduate college student_6293725.png" alt="image" />
                             </div>
+
+                        </div>
+                        <div>
+                            <Link className='absolute bottom-8 left-5' href={'/mainpages/upbordlisting'}>
+                                <p className='ml-16 mt-4 inline-block text-gray-500 hover:text-blue-600'>Top ranked Up-Bord Schools  < SlArrowRight className='inline-block hover:text-blue-600 text-gray-500  ml-1 text-[10px] font-extrabold' /></p>
                             </Link>
-                            <hr />
-                            <div className='flex justify-between py-2 hover:text-orange-500  text-gray-500 items-center'>
-                                <h1 className=' text-[16px] font-medium ml-3'>University-courses</h1>
-                                {/* grater then ka sign svg me  */}
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className='h-5 w-6 font-normal   mr-3'>
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
-                            <hr />
-                            <div className='flex justify-between py-2 hover:text-orange-500  text-gray-500 items-center'>
-                                <h1 className=' text-[16px] font-medium ml-3'>University-fee</h1>
-                                {/* grater then ka sign svg me  */}
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className='h-5 w-6 font-normal   mr-3'>
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </div>
                         </div>
+
                     </div>
-                       }}
-                    )}
+                    <div className='h-[270px] flex-col relative md:w-[380px] md:ml-4  w-[360px] rounded-md bg-gradient-to-b from-indigo-100 hover:shadow-indigo-300 shadow-md  hover:border-indigo-300  border-gray-300 border-2'>
+                        <div className='flex'>
+
+                            <div className='w-[250px]   h-[100px] '>
+                                <h1 className='ml-14 mt-9 text-lg md:text-xl hover:text-orange-500 font-semibold text-gray-700'>CBSC-Bord Schools</h1>
+                                <p className='ml-14 pt-4  text-gray-400 text-sm font-medium'>UP-CBSE school ranked based on real data</p>
+
+                            </div>
+                            <div className='h-[100px]'>
+                                <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="/10088-removebg-preview.png" alt="" />
+                            </div>
+
+                        </div>
+                        <div>
+                            <Link className='absolute bottom-8 left-5' href={"/mainpages/cbsebordlisting"}>
+                                <p className='ml-16 mt-4 inline-block text-gray-500 hover:text-blue-600'>Top ranked CBSC-Bord Schools < SlArrowRight className='inline-block hover:text-blue-600 text-gray-500  ml-1 text-[10px] font-extrabold' /></p>
+                            </Link>
+                        </div>
+
+                    </div>
+                    <div className='h-[270px] flex-col relative md:w-[380px] md:ml-4 w-[360px] rounded-md bg-gradient-to-b from-indigo-100 hover:shadow-indigo-300 shadow-md  hover:border-indigo-300  border-gray-300 border-2'>
+                        <div className='flex'>
+
+                            <div className='w-[250px] h-[100px] '>
+                                <h1 className='ml-14 mt-9 text-lg md:text-xl hover:text-orange-500 font-semibold text-gray-700'>ICSE-Bord School</h1>
+                                <p className='ml-14 pt-4  text-gray-400 text-sm font-medium'>ICSE-Bord school ranked based on real data</p>
+
+                            </div>
+                            <div className='h-[100px]'>
+                                <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="/Na_Nov_28-removebg-preview.png" alt="image" />
+                            </div>
+
+                        </div>
+                        <Link className='absolute bottom-8 left-5' href={"/mainpages/icsebordlisting"}>
+                            <p className='ml-16 mt-4 inline-block hover:text-blue-600 text-gray-500'>Top ranked ICSE-Bord Schools  < SlArrowRight className='inline-block  hover:text-blue-600 text-gray-500  ml-1 text-[10px] font-bold' /></p>
+                        </Link>
+
+                    </div>
+
                 </div>
             </div>
-            </div>
-            <hr className='my-5' />
+
         </div>
     )
 }

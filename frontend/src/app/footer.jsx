@@ -7,7 +7,7 @@ const footer = () => {
 
     <>
       {/* Footer container */}
-      <footer className=" text-center text-surface/75 dark:bg-neutral-600 dark:text-white/75 lg:text-left">
+      <footer className=" text-center text-surface/75 bg-neutral-600  text-white/75 lg:text-left">
         <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-white/10 lg:justify-between">
           <div className="me-12 hidden lg:block">
             <span>Get connected with us on social networks:</span>
@@ -223,16 +223,16 @@ const footer = () => {
           </div>
         </div>
         {/*Copyright section*/}
-        <div className="bg-white/5 flex items-center  ">
+        <div className="bg-emerald-100/10 flex items-center  ">
          
-            <Link href="/" className="shrink-0 ">
+            <Link href="/" className="shrink-0 bg-white">
               <img
                 src="\A2.png"
                 alt="logo"
-                className="lg:w-[250px] w-[100px] h-[50px] ml-5 md:h-[80px] "
+                className="lg:w-[250px]  w-[100px] h-[50px] ml-5 md:h-[80px] "
               />
           </Link>
-          <div className='pt-5 inline-block text-lg text-gray-600 ml-[30%] font-semibold'>© 2023 Copyright:</div>
+          <div className='pt-5 inline-block text-lg text-white ml-[30%] font-semibold'>© 2023 Copyright:</div>
         </div>
       </footer>
     </>

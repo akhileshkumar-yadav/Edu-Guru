@@ -6,6 +6,7 @@ import { RiFindReplaceLine } from "react-icons/ri";
 import classess from './viewuni.module.css'
 import { FaRegStar } from "react-icons/fa";
 import StarRatings from 'react-star-ratings';
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 
 const ViewUniversity = () => {
@@ -17,6 +18,8 @@ const ViewUniversity = () => {
     const [rating, setRating] = useState(3);
     const [reviews, setreviews] = useState([])
     const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')));
+      const [locationName, setLocationName] = useState(""); // State for location name
+      const [loading, setLoading] = useState(true); // State to show loading
 
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
@@ -181,7 +184,7 @@ const ViewUniversity = () => {
                                 
                                 }}
                             >
-                                <div className=''>
+                                <div >
                                     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
                                         <GoogleMap
                                             mapContainerStyle={containerStyle}

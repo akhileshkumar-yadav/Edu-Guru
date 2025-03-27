@@ -1,4 +1,5 @@
 'use client'
+import Head from "next/head";
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
@@ -15,7 +16,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { AppProvider } from "../context/appcontext";
 import dynamic from "next/dynamic";
 
 const page = () => {
@@ -108,39 +108,41 @@ const page = () => {
 
   return (
 
-    <div className=''>
-      
+    <div>
+      <Head>
+        <meta charSet="UTF-8" />
+      </Head>
        <Navbar  />
        
       <div className='font-sans relative'>
 
-        <div className=' flex md:min-w-[1536px] flex-col md:w-[1536px] slider-container overflow-hidden '>
+        <div className=' flex flex-col md:min-w-[600px] overflow-x-hidden lg:max-w-[1536px] slider-container '>
           <Slider {...setting}>
 
             <div className='  relative '>
-              <img className='lg:min-w-[1536px]  md:min-w-[600px] md:h-[510px] min-h-[250px]' src="https://ir.iith.ac.in/assets/images/photo_gallery/WhatsApp%20Image%202022-12-04%20at%207.29.50%20PM.jpeg" alt="" />
+              <img className='lg:min-w-[1536px]  md:min-w-[600px] md:h-[510px] min-h-[250px]' src="https://ir.iith.ac.in/assets/images/photo_gallery/WhatsApp%20Image%202022-12-04%20at%207.29.50%20PM.jpeg" alt="iit r" />
 
               <div className='text-white hover:underline hidden md:block absolute w-20  bottom-1 right-[500px]'>
                 <h1 href={"/"} className='hover:text-yellow-500 text-md  w-[450px]'>Indian Institute of Technology,Roorkee </h1>
               </div>
             </div>
             <div className=' relative'>
-              <img className='lg:min-w-[1536px] md:min-w-[600px] md:h-[510px] min-h-[250px]' src="https://ir.iith.ac.in/assets/images/home/Jaykishan%20Pipaliya.jpeg" alt="" />
+              <img className='lg:min-w-[1536px] md:min-w-[600px] md:h-[510px] min-h-[250px]' src="https://ir.iith.ac.in/assets/images/home/Jaykishan%20Pipaliya.jpeg" alt="shri" />
               <div className='text-white hover:underline absolute w-20 hidden md:block  bottom-1 right-[500px]'>
                 <h1 href={"/"} className='hover:text-yellow-500 text-md  w-[450px]'>Shri Ram College of Commerce,New Delhi</h1>
               </div>
             </div>
             <div className=' relative'>
-              <img className='lg:min-w-[1536px] md:min-w-[600px] md:h-[510px] min-h-[250px]' src="https://ir.iith.ac.in/assets/images/photo_gallery/WhatsApp%20Image%202022-12-04%20at%207.29.50%20PM.jpeg" alt="" />
+              <img className='lg:min-w-[1536px] md:min-w-[600px] md:h-[510px] min-h-[250px]' src="https://ir.iith.ac.in/assets/images/photo_gallery/WhatsApp%20Image%202022-12-04%20at%207.29.50%20PM.jpeg" alt="iit" />
               <div className='text-white hover:underline absolute hidden md:block w-20  bottom-1 right-[500px]'>
                 <h1 href={"/"} className='hover:text-yellow-500 text-md  w-[450px]'>Indian Institute of Management, Ahmedabad</h1>
               </div>
             </div>
 
           </Slider>
-          <div className='absolute   md:top-[7%] top-[5%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%] justify-center items-center'>
+          <div className='absolute  md:top-[7%] top-[2%] md:left-[25%] left-[20%] lg:left-[25%] flex-col w-[60%]  '>
             <div className='flex justify-center items-center bg-transparent'>
-              <h1 className=' text-3xl lg:hidden  text-white font-semibold '>Find Top University in india</h1>
+              <h1 className=' text-lg lg:hidden  text-white font-semibold '>Find Top University in india</h1>
               <div className='lg:text-2xl hidden lg:block text-md text-white font-semibold '>
                 <TypeAnimation
                   preRenderFirstString={true}
@@ -162,22 +164,15 @@ const page = () => {
                 />
               </div>
             </div>
-            <div className='flex justify-between overflow-hidden lg:mt-10 lg:h-[55px] h-[40px] w-[90%]   rounded-sm bg-white items-center'>
-              <h1 className="text-gray-400 w-[5%] pl-4" ><RiFindReplaceLine /></h1>
-              <input className='bg-transparent outline-none text-gray-400 w-[50%] lg:w-[80%] h-[100%]'
+            <div className='flex justify-between overflow-hidden mt-4 lg:mt-10 lg:h-[55px] h-[40px] w-[90%]  rounded-3xl  md:rounded-sm bg-white items-center'>
+              <h1 className="text-gray-400 hidden md:block w-[5%] pl-4" ><RiFindReplaceLine /></h1>
+              <input className='bg-transparent outline-none pl-3 text-gray-400 w-[50%] lg:w-[80%] h-[100%]'
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder='Search for colleges,courses' />
-              <button onClick={applysearch} className='bg-orange-400   lg:w-[15%] w-[25%]  border-none h-[100%] text-white'>Search</button>
+              <button onClick={applysearch} className='bg-orange-400 px-2 lg:w-[15%] w-[30%]  border-none h-[100%] text-white'>Search</button>
             </div>
-            {/* <div className='flex justify-between mt-6 text-white font-semibold  items-center'>
-            <h1>Your recent visit</h1>
-            <span className='bg-transparent border px-2 rounded-md h-[30px] border-gray-300 flex justify-center items-center'>IIT Bombay,Mumbai</span>
-            <span className='bg-transparent border rounded-md h-[30px] border-gray-300 px-2 flex justify-center items-center'>IICD</span>
-            <span className='bg-transparent border rounded-md h-[30px] border-gray-300 px-2 flex justify-center items-center'>IIT Ahemdabad,Ahemdabad</span>
-            <span className=' border bg-orange-500 border-gray-300 rounded-md h-[40px] px-7 flex justify-center items-center'>Need Counslling</span>
-          </div> */}
           </div>
 
         </div>
@@ -185,16 +180,16 @@ const page = () => {
           <h1 className='text-3xl mb-4 text-gray-900 font-semibold '>Explore Programs</h1>
           
           <div className='md:flex  mb-4 flex-wrap justify-start items-center'>
-            <div className='h-[270px] flex-col relative md:w-[380px]  w-[360px] rounded-md bg-gradient-to-b from-indigo-100 hover:shadow-indigo-300 shadow-md  hover:border-indigo-300  border-gray-300 border-2'>
+            <div className='h-[270px] flex-col relative md:w-[380px] w-[360px] rounded-md bg-gradient-to-b from-indigo-100 hover:shadow-indigo-300 shadow-md  hover:border-indigo-300  border-gray-300 border-2'>
               <div className='flex'>
 
-                <div className='w-[250px]   h-[100px] '>
+                <div className='w-[250px] h-[100px] '>
                   <h1 className='ml-14 mt-9 text-xl md:text-3xl hover:text-orange-500 font-semibold text-gray-700'>Top University</h1>
                   <p className='ml-14 pt-4  text-gray-400 text-sm font-medium'>College ranked based on real data</p>
 
                 </div>
                 <div className='h-[100px]'>
-                  <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="\—Pngtree—illustration of graduate college student_6293725.png" alt="" />
+                  <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="\—Pngtree—illustration of graduate college student_6293725.png" alt="image" />
                 </div>
 
               </div>
@@ -212,7 +207,7 @@ const page = () => {
 
                 </div>
                 <div className='h-[100px]'>
-                  <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="10088-removebg-preview.png" alt="" />
+                  <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="10088-removebg-preview.png" alt="image" />
                 </div>
 
               </div>
@@ -230,7 +225,7 @@ const page = () => {
 
                 </div>
                 <div className='h-[100px]'>
-                  <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="Na_Nov_28-removebg-preview.png" alt="" />
+                  <img className='md:h-[100px]  md:w-[100px] mt-9 h-[50px] w-[50px] ' src="Na_Nov_28-removebg-preview.png" alt="image" />
                 </div>
 
               </div>
@@ -258,29 +253,29 @@ const page = () => {
 
                     </div>
                     </button> 
-                    <button onClick={(e) => filterByCategory('Mtech')}  className='overflow-x' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[90px]'>
+                    <button onClick={(e) => filterByCategory('Mtech')}  className='overflow-x' href="/"><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[90px]'>
                         <h1 className='border-[2px]  px-3 border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 py-1 pl-2 ml-4 rounded-3xl w-[80px]'>M-tech</h1>
                     </div>
                     </button>
-                    <button onClick={(e) => filterByCategory('BA')} className='overflow-x' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
+                    <button onClick={(e) => filterByCategory('BA')} className='overflow-x' href="/"><div className=' h-[40px]   px-5 py-1   text-gray-500  w-[80px]'>
                         <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>BA</h1>
                     </div>
                     </button>
-                    <button onClick={(e) => filterByCategory('BBA')} className='' href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
+                    <button onClick={(e) => filterByCategory('BBA')} className='' href="/"><div className=' h-[40px] px-5 py-1   text-gray-500  w-[80px]'>
                         <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>BBA</h1>
                     </div>
                     </button>
-                    <button onClick={(e) => filterByCategory('MBA')} href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
+                    <button onClick={(e) => filterByCategory('MBA')} href="/"><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
                         <h1 className='border-[2px] py-[3px]  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>MBA</h1>
                     </div>
                     </button>
-                    <button onClick={(e) => filterByCategory('BCA')} href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
+                    <button onClick={(e) => filterByCategory('BCA')} href="/"><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
                         <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[60px]'>BCA </h1>
                     </div>
                     </button>
 
-                    <button onClick={(e) => filterByCategory('B.Com')} href=""><div className=' h-[40px]   px-5 py-1   text-gray-500   w-[80px]'>
-                        <h1 className='border-[2px] py-1  border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[80px]'>B.Com</h1>
+                    <button onClick={(e) => filterByCategory('B.Com')} href="/"><div className=' h-[40px]   px-5 py-1   text-gray-500 w-[80px]'>
+                        <h1 className='border-[2px] py-1border-l-green-400 border-r-blue-400 border-t-red-400 border-b-yellow-400 px-3 rounded-3xl w-[80px]'>B.Com</h1>
                     </div>
                     </button>
 
@@ -306,7 +301,7 @@ const page = () => {
 
                         </tr>
                     </thead>
-                    <tbody className=''>
+                    <tbody >
                         {
 
                             listing.map((item, index) => {
@@ -322,7 +317,7 @@ const page = () => {
                                 return <tr className={`h-[100px] ${backgroundcolor(index + 1)} `} key={item._id} >
                                     <td className="px-4 py-2 text-gray-500 ">#{index + 1}</td>
                                     <td className="pl-4 py-2 max-w-[70px]"><div className='flex justify-center items-center h-[50px] ml-3 w-[50px] rounded-[50%]  border '>
-                                        <img className='h-[33px] w-[33px]  rounded-[50%] overflow-hidden ' src={item.image} alt="" />
+                                        <img className='h-[33px] w-[33px]  rounded-[50%] overflow-hidden ' src={item.image} alt="image" />
                                     </div></td>
 
                                     <td className="pr-4 py-2  max-w-[290px] min-w-[250px] text-sm md:text-[18px]  font-[550] text-[#84c3d3] "><Link href={'/mainpages/viewUniversity/' + item._id}> {item.universityName} <h1 className='text-sm font-normal text-gray-600 md:overflow-auto overflow-hidden'>{item.universityAddress} </h1> </Link></td>
@@ -345,15 +340,15 @@ const page = () => {
       </div>
       <hr className='mb-4 mt-4' />
 
-    <div className="max-w-[80%] bg-gradient-to-b from-indigo-100 md:mb-3 rounded-md hover:shadow-indigo-300 shadow-md  hover:border-indigo-300  border-gray-300 border-2 px-4 py-10 mt-3 sm:px-6 lg:px-8 lg:py-14 md:ml-36">
+    <div className="md:max-w-[80%] w-[90%] mx-3 bg-gradient-to-b from-indigo-100 md:mb-3 rounded-md hover:shadow-indigo-300 shadow-md  hover:border-indigo-300  border-gray-300 border-2 px-4 py-10 mt-3 sm:px-6 lg:px-8 lg:py-14 md:ml-36">
       <div className="max-w-[798px] bg-gradient-to-b from-gray-100 md:p-4 shadow-gray-300 shadow-xl  mx-auto">
         {/* Grid */}
         <div className="grid gap-12 ">
           <div>
-            <h2 className="text-3xl text-gray-700 font-bold lg:text-4xl dark:text-white">
+            <h2 className="text-3xl text-gray-700 font-bold lg:text-4xl ">
               Our vision
             </h2>
-            <p className="mt-3   text-lg text-gray-700 dark:text-neutral-400">
+            <p className="mt-3   text-lg text-gray-700 0">
             The vision of "TopFiveEduGuru" is to empower students and parents by providing accurate, unbiased, and transparent information about colleges. The platform aims to simplify the decision-making process through data-driven insights and user-friendly tools, ensuring that users can make well-informed choices. By promoting transparency through authentic reviews and feedback, the project aspires to bridge the gap between students and quality education.
             </p>
           </div>
@@ -361,7 +356,7 @@ const page = () => {
             {/* Icon Block */}
             <div className="flex gap-x-5 sm:gap-x-8">
               <svg
-                className="shrink-0 mt-2 size-6 text-gray-800 dark:text-white"
+                className="shrink-0 mt-2 size-6 text-gray-800 "
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
@@ -381,11 +376,11 @@ const page = () => {
                 <path d="M10 18h4" />
               </svg>
               <div className="grow">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-neutral-200">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 ">
                 Transforming College Selection
 
                 </h3>
-                <p className="mt-1 text-gray-700 hover:text-blue-300 dark:text-neutral-400">
+                <p className="mt-1 text-gray-700 hover:text-blue-300 ">
                 Making the journey of choosing the right college easy, efficient, and stress-free through innovative tools.
                 </p>
               </div>
@@ -394,7 +389,7 @@ const page = () => {
             {/* Icon Block */}
             <div className="flex gap-x-5 sm:gap-x-8">
               <svg
-                className="shrink-0 mt-2 size-6 text-gray-800 dark:text-white"
+                className="shrink-0 mt-2 size-6 text-gray-800 "
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
@@ -411,10 +406,10 @@ const page = () => {
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
               <div className="grow ">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-neutral-200">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 ">
                 Empowering Students and Parents
                 </h3>
-                <p className="mt-1 text-gray-700 hover:text-blue-300 dark:text-neutral-400">
+                <p className="mt-1 text-gray-700 hover:text-blue-300 ">
                 Providing accurate insights and unbiased information to enable informed and confident decisions.
 
 
@@ -425,7 +420,7 @@ const page = () => {
             {/* Icon Block */}
             <div className="flex gap-x-5 sm:gap-x-8">
               <svg
-                className="shrink-0 mt-2 size-6 text-gray-800 dark:text-white"
+                className="shrink-0 mt-2 size-6 text-gray-800 "
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
@@ -440,10 +435,10 @@ const page = () => {
                 <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z" />
               </svg>
               <div className="grow">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-neutral-200">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 ">
                 Shaping a Brighter Future
                 </h3>
-                <p className="mt-1 text-gray-700 hover:text-blue-300 dark:text-neutral-400">
+                <p className="mt-1 text-gray-700 hover:text-blue-300 ">
                 Creating opportunities for students to align their education with their aspirations, fostering growth and success.
                 </p>
               </div>

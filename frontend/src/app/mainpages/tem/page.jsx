@@ -1,92 +1,81 @@
-'use client'
-import React from 'react'
-import Slider from 'react-slick'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import classess from "./tem.module.css"
+'use client';
 
-const NextArrow = (props) => {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ 
-                ...style, 
-                display: "block", 
-                background: "orange", 
-                borderRadius: "50%", 
-                marginRight:"12px", 
-                zIndex:"10"
-            }}
-            onClick={onClick}
-        />
-    );
+import { useState } from 'react';
+
+const schoolsData = {
+  "Uttar Pradesh": {
+    "Lucknow": ["Lucknow Public School", "St. Francis College"],
+    "Kanpur": ["Delhi Public School, Kanpur"]
+  },
+  "Madhya Pradesh": {
+    "Indore": ["Indore Public School"],
+    "Bhopal": ["Bhopal Central School"]
+  },
+  "Rajasthan": {
+    "Jaipur": ["Jaipur International School"],
+    "Udaipur": ["Udaipur Academy"]
+  }
 };
 
-const PrevArrow = (props) => {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ 
-                ...style, 
-                display: "block", 
-                background: "orange", 
-                borderRadius: "50%",
-                marginLeft:"12px", 
-                zIndex:"10"
-            }}
-            onClick={onClick}
-        />
-    );
-};
+export default function SchoolFilter() {
+  const [selectedState, setSelectedState] = useState('');
+  const [selectedDistrict, setSelectedDistrict] = useState('');
+  const [districts, setDistricts] = useState([]);
+  const [filteredSchools, setFilteredSchools] = useState([]);
 
-const tem = () => {
-    const settings = {
-        // dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />
-    };
+  const handleStateChange = (event) => {
+    const state = event.target.value;
+    setSelectedState(state);
+    setSelectedDistrict('');
+    setDistricts(Object.keys(schoolsData[state] || {}));
+    setFilteredSchools([]);
+  };
 
-    const data = [
-        { id: 1, image: "https://picsum.photos/200?random=1", name: "Ravi", age: 25, city: "Delhi", profession: "Engineer" },
-        { id: 2, image: "https://picsum.photos/200?random=2", name: "Priya", age: 30, city: "Mumbai", profession: "Doctor" },
-        { id: 3, image: "https://picsum.photos/200?random=3", name: "Amit", age: 28, city: "Pune", profession: "Designer" },
-        { id: 4, image: "https://picsum.photos/200?random=4", name: "Neha", age: 22, city: "Bangalore", profession: "Developer" },
-        { id: 5, image: "https://picsum.photos/200?random=5", name: "Raj", age: 35, city: "Hyderabad", profession: "Manager" },
-        { id: 6, image: "https://picsum.photos/200?random=6", name: "Anjali", age: 27, city: "Chennai", profession: "Architect" },
-        { id: 7, image: "https://picsum.photos/200?random=7", name: "Vikram", age: 32, city: "Jaipur", profession: "Photographer" },
-        { id: 8, image: "https://picsum.photos/200?random=8", name: "Pooja", age: 26, city: "Kolkata", profession: "Journalist" },
-        { id: 9, image: "https://picsum.photos/200?random=9", name: "Sahil", age: 29, city: "Lucknow", profession: "Chef" },
-        { id: 10, image: "https://picsum.photos/200?random=10", name: "Simran", age: 24, city: "Chandigarh", profession: "Writer" }
-    ];
+  const handleDistrictChange = (event) => {
+    const district = event.target.value;
+    setSelectedDistrict(district);
+    setFilteredSchools(schoolsData[selectedState]?.[district] || []);
+  };
 
-    return (
-        <div className={classess.myCarousel}>
-            <div style={{}} className={classess.slickSlide}>
-                <Slider {...settings}>
-                    {data.map((item) => (
-                        <div key={item.id} className=' text-black  rounded-2xl my-2   h-[450px] shadow-lg'>
-                            <div className='flex justify-center items-center  rounded-2xl bg-indigo-400 h-56'>
-                                <img src={item.image} alt={item.name} className='rounded-full w-32 h-32' />
-                            </div>
-                            <div className='p-4 flex justify-center flex-col items-center'>
-                                <h2 className='text-2xl font-bold'>{item.name}</h2>
-                                <p className='text-lg'>{item.profession}</p>
-                                <p className='text-lg'>{item.city}</p>
-                                <p className='text-lg'>{item.age}</p>
-                                <button className='bg-orange-400 text-white px-4 py-1 rounded-2xl mt-2'>Submit</button>
-                            </div>
-                        </div>
-                    ))}
-                </Slider>
-            </div>
-        </div>
-    );
+  return (
+    <div className="p-6 max-w-lg mx-auto">
+      <h2 className="text-xl font-bold mb-4">Select State & District to Find Schools</h2>
+      
+      <div className="flex gap-4 mb-4">
+        <select
+          className="w-1/2 p-2 border rounded"
+          value={selectedState}
+          onChange={handleStateChange}
+        >
+          <option value="">Select a State</option>
+          {Object.keys(schoolsData).map((state) => (
+            <option key={state} value={state}>{state}</option>
+          ))}
+        </select>
+
+        <select
+          className="w-1/2 p-2 border rounded"
+          value={selectedDistrict}
+          onChange={handleDistrictChange}
+          disabled={!districts.length}
+        >
+          <option value="">Select a District</option>
+          {districts.map((district) => (
+            <option key={district} value={district}>{district}</option>
+          ))}
+        </select>
+      </div>
+
+      <h3 className="text-lg font-semibold">Schools in {selectedDistrict}, {selectedState}:</h3>
+      <ul className="list-disc pl-5 mt-2">
+        {filteredSchools.length > 0 ? (
+          filteredSchools.map((school, index) => (
+            <li key={index}>{school}</li>
+          ))
+        ) : (
+          <p className="text-gray-500">No schools found.</p>
+        )}
+      </ul>
+    </div>
+  );
 }
-
-export default tem;

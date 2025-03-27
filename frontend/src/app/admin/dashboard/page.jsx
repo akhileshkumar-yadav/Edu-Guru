@@ -42,16 +42,38 @@ const Dashbord = () => {
     return (
         <div className='md:ml-[260px] absolute top-6  bg-slate-50 md:w-[83%]  h-auto'>
             <div className=' text-center font-semibold text-3xl mt-16 mb-4 text-gray-700'>Welcome To Admin Dashboard</div>
-            <div className='lg:max-w-[80%] ml-16  py-10 border rounded-xl shadow-lg p-8'>
+            <div className='lg:max-w-[95%] md:ml-5  py-10 border rounded-xl shadow-lg p-8'>
             <h1 className='text-center text-gray-700 font-bold text-3xl'>
                         Manage-Data
                     </h1>
-            <div className='flex gap-20 ml-5 mt-10'>
+            <div className='flex flex-wrap gap-8 ml-5 mt-10'>
 
+                <Link href={'/admin/addupBord'}>
+                    <div className='w-[250px] relative h-[150px] text-2xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-100 hover:shadow-emerald-200 bg-gradient-to-b from-emerald-100 hover:from-emerald-200 hover:text-blue-600'>
+                    <FaBuffer className='text-blue-500 ' />
+                        UPBord-School
+                        <span class="absolute -right-1 top-0 flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+                        </span>
+
+                    </div>
+                </Link>
                 <Link href={'/admin/addSchool'}>
-                    <div className='w-[250px] relative h-[150px] text-3xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-100 hover:shadow-emerald-200 bg-gradient-to-b from-emerald-100 hover:from-emerald-200 hover:text-blue-600'>
-                        <FaBuffer />
-                        Add-School
+                    <div className='w-[250px] relative h-[150px] text-2xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-100 hover:shadow-emerald-200 bg-gradient-to-b from-emerald-100 hover:from-emerald-200 hover:text-blue-600'>
+                    <FaBuffer className='text-blue-500 ' />
+                        CBSE-School
+                        <span class="absolute -right-1 top-0 flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+                        </span>
+
+                    </div>
+                </Link>
+                <Link href={'/admin/addSchool'}>
+                    <div className='w-[250px] relative h-[150px] text-2xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-100 hover:shadow-emerald-200 bg-gradient-to-b from-emerald-100 hover:from-emerald-200 hover:text-blue-600'>
+                    <FaBuffer className='text-blue-500 ' />
+                        ICSE-School
                         <span class="absolute -right-1 top-0 flex h-3 w-3">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
@@ -60,8 +82,8 @@ const Dashbord = () => {
                     </div>
                 </Link>
                 <Link href={'/admin/addcollege'}>
-                    <div className='w-[250px] relative h-[150px] text-3xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-100 hover:shadow-emerald-200 bg-gradient-to-b from-emerald-100 hover:from-emerald-200 hover:text-blue-600'>
-                        <FaBuffer />
+                    <div className='w-[250px] relative h-[150px] text-2xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-100 hover:shadow-emerald-200 bg-gradient-to-b from-emerald-100 hover:from-emerald-200 hover:text-blue-600'>
+                    <FaBuffer className='text-blue-500 ' />
                         Add-College
                         <span class="absolute -right-1 top-0 flex h-3 w-3">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
@@ -71,8 +93,8 @@ const Dashbord = () => {
                     </div>
                 </Link>
                 <Link href={'/admin/adduniversity'}>
-                    <div className='w-[250px] relative h-[150px] text-3xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-100 hover:shadow-emerald-200 bg-gradient-to-b from-emerald-100 hover:from-emerald-200 hover:text-blue-600'>
-                        <FaBuffer />
+                    <div className='w-[250px] relative h-[150px] text-2xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-100 hover:shadow-emerald-200 bg-gradient-to-b from-emerald-100 hover:from-emerald-200 hover:text-blue-600'>
+                        <FaBuffer className='text-blue-500 ' />
                         Add-University
                         <span class="absolute -right-1 top-0 flex h-3 w-3">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
@@ -81,13 +103,26 @@ const Dashbord = () => {
 
                     </div>
                 </Link>
-            </div>
-            <div className='flex gap-20 ml-5 mt-10'>
+            {/* <div className='flex flex-wrap gap-20 ml-5 mt-10'> */}
 
+                <Link href={'/admin/manageupbord'}>
+                    <div className='w-[250px] relative h-[150px] text-2xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-50 hover:shadow-red-200 bg-gradient-to-b from-emerald-100 hover:from-red-100 hover:text-red-400'>
+                        <GrFormTrash className='text-red-500 text-3xl' />
+                        Manage-UPBord
+
+                    </div>
+                </Link>
                 <Link href={'/admin/manageSchool'}>
                     <div className='w-[250px] relative h-[150px] text-2xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-50 hover:shadow-red-200 bg-gradient-to-b from-emerald-100 hover:from-red-100 hover:text-red-400'>
                         <GrFormTrash className='text-red-500 text-3xl' />
-                        Manage-School
+                        Manage-CBSE
+
+                    </div>
+                </Link>
+                <Link href={'/admin/manageSchool'}>
+                    <div className='w-[250px] relative h-[150px] text-2xl font-semibold text-gray-700 flex justify-center items-center border rounded-md shadow-lg shadow-emerald-50 hover:shadow-red-200 bg-gradient-to-b from-emerald-100 hover:from-red-100 hover:text-red-400'>
+                        <GrFormTrash className='text-red-500 text-3xl' />
+                        Manage-ICSE
 
                     </div>
                 </Link>
@@ -109,21 +144,21 @@ const Dashbord = () => {
                 </Link>
             </div>
             </div>
-            <div className='lg:max-w-[80%] ml-16  py-10'>
-                <div className='border rounded-xl shadow-lg p-8'>
+            <div className='lg:w-[95%] w-[340px] ml-5  py-10'>
+                <div className='border rounded-xl overflow-x-scroll  shadow-lg p-5'>
                     <h1 className='text-center text-gray-700 font-bold text-3xl'>
                         Manage-User
                     </h1>
                     {/* <hr /> */}
-                    <table className='w-full mt-3'>
+                    <table className='w-full mt-3  '>
                         <thead className='bg-violet-700 text-white'>
                             <tr>
-                            </tr>
                             {/* <th className='p-2 border border-white hover:bg-violet-800'>ID</th> */}
                             <th className='p-2 border border-white hover:bg-violet-800'>NAME</th>
                             <th className='p-2 border border-white hover:bg-violet-800'>EMAIL</th>
                             <th className='p-2 border border-white hover:bg-violet-800'>PASSWORD</th>
                             <th colSpan={2}>Actions</th>
+                            </tr>
                         </thead>
                         <tbody className='bg-violet-200'>
                             {

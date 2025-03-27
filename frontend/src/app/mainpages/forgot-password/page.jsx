@@ -69,27 +69,27 @@ const ResetPassword = () => {
             // First verify OTP with server
             const verifyResponse = await fetch("http://localhost:5000/pass/verify-otp", {
                 method: "POST",
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     email: email,
-                    otp: formData.otp 
+                    otp: formData.otp
                 }),
                 headers: { "Content-Type": "application/json" },
             });
-            
+
             if (verifyResponse.status === 200) {
                 // OTP verified, now reset password
                 const resetResponse = await fetch("http://localhost:5000/pass/reset-password", {
                     method: "PUT",
-                    body: JSON.stringify({ 
+                    body: JSON.stringify({
                         email: email,
-                        newPassword: formData.password 
+                        newPassword: formData.password
                     }),
                     headers: { "Content-Type": "application/json" },
                 });
 
                 if (resetResponse.status === 200) {
                     toast.success("Password reset successfully");
-                    router.push("/login");
+                    router.push("/mainpages/login");
                 } else {
                     toast.error("Failed to reset password");
                 }
@@ -113,8 +113,8 @@ const ResetPassword = () => {
                         <h2 className='text-center text-white text-3xl font-bold mb-8 font-[family-name:var(--font-geist-mono)]'>Reset Password</h2>
                         <form action="">
                             <div className="mb-4">
-                                <input type="text" 
-                                    className='w-full font-[family-name:var(--font-geist-mono)] px-3 py-2 border text-gray-700 border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent' 
+                                <input type="text"
+                                    className='w-full font-[family-name:var(--font-geist-mono)] px-3 py-2 border text-gray-700 border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
                                     placeholder='Enter Your Email'
                                     id="email"
                                     value={email}
@@ -122,8 +122,8 @@ const ResetPassword = () => {
                                 />
                             </div>
                             <div className="text-center">
-                                <button type='submit' 
-                                    onClick={verifyUser} 
+                                <button type='submit'
+                                    onClick={verifyUser}
                                     className='w-full font-[family-name:var(--font-geist-mono)] bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-200'
                                 >
                                     Send OTP
@@ -140,8 +140,8 @@ const ResetPassword = () => {
                                 {({ values, handleChange, handleSubmit, errors }) => (
                                     <form action="" className='mt-6' onSubmit={handleSubmit}>
                                         <div className="mb-4">
-                                            <input type="text" 
-                                                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent' 
+                                            <input type="text"
+                                                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
                                                 placeholder='Enter OTP'
                                                 id="otp"
                                                 value={values.otp}
@@ -149,8 +149,8 @@ const ResetPassword = () => {
                                             />
                                         </div>
                                         <div className="mb-4">
-                                            <input type="password" 
-                                                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent' 
+                                            <input type="password"
+                                                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
                                                 placeholder='New Password'
                                                 id="password"
                                                 value={values.password}
@@ -158,8 +158,8 @@ const ResetPassword = () => {
                                             />
                                         </div>
                                         <div className="mb-4">
-                                            <input type="password" 
-                                                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent' 
+                                            <input type="password"
+                                                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
                                                 placeholder='Confirm Password'
                                                 id="confirm"
                                                 value={values.confirm}
@@ -167,9 +167,9 @@ const ResetPassword = () => {
                                             />
                                         </div>
                                         <div className="text-center">
-                                            <button 
+                                            <button
                                                 type='submit'
-                                                disabled={isVerifying} 
+                                                disabled={isVerifying}
                                                 className={`w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-200 ${isVerifying ? 'opacity-70 cursor-not-allowed' : ''}`}
                                             >
                                                 {isVerifying ? 'Verifying...' : 'Submit'}
