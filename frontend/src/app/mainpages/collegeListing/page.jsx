@@ -167,55 +167,43 @@ const CollegeListing = () => {
 
             </div>
             <hr className='my-3' />
-            <div className='md:ml-36  flex h-[45px] justify-start w-[80%] bg-[#506c73]'>
-                <div className='border-e border-s flex justify-start items-center'>
-                    <h1 className='text-white text-[18px] w-[100px] ml-4 '>Rank</h1>
-                </div>
-                <div className='border-r flex justify-start items-center'>
-                    <h1 className='text-white text-[18px] w-[485px] ml-2'>College</h1>
-                </div>
-                <div className='border-r flex justify-start items-center'>
-                    <h1 className='text-white text-[18px] w-[300px] ml-2'>Courses</h1>
-                </div>
-                <div className='border-r flex justify-start items-center'>
-                    <h1 className='text-white text-[18px] w-[300px] ml-2'>collegeDetail</h1>
-                </div>
-            </div>
-            {
-                listing.map((item, index) => {
-                    const backgroundcolor = (items) => {
-                        if ((items) % 2 === 0) {
-                            return 'bg-gray-100'
-                        }
-                        else {
-                            return 'bg-white'
-                        }
-                    }
-                    return <div className={`md:ml-36 h-[100px] flex  justify-start font-sans  w-[80%]  ${backgroundcolor(index + 1) } `} key={item._id}>
-                        <div className='border-e border-s flex justify-start  items-start'>
-                            <h1 className='text-gray-600 text-[18px] w-[100px]  ml-4 '>#{index + 1}</h1>
-                        </div>
-                        <div className='w-[500px] border-e flex'>
-                        <div className='w-[60px] flex justify-center  items-start mt-2'>
-                            <div className='flex justify-center items-center h-[50px] ml-3 w-[50px] rounded-[50%] border '>
-                                <img className='h-[33px] w-[33px]  overflow-hidden  ' src={item.image} alt="" />
-                            </div>
-                        </div>
-                        <Link className="" href={'/mainpages/viewCollege/' + item._id}>
-                        <div className='w-[426px] flex-col justify-start   items-start '>
-                            <p className='text-[#56909e] ml-3 text-[17px] mt-2 font-[550]'>{item.collegeName}</p>
-                            <p className='text-[14px] text-gray-600 ml-3 font-normal'>{item.collegeAddress}</p>
-                        </div>
-                        </Link>
-                        </div>
-                        <div className='border-r flex justify-start items-start'>
-                            <h1 className='text-gray-500 mt-3 text-[18px] w-[300px] ml-2'>{item.courses}</h1>
-                        </div>
-                        <div className='border-r flex  justify-start items-start'>
-                            <h1 className='text-gray-600 mt-3 text-[18px] w-[300px] ml-2'>{}</h1>
-                        </div>
-                    </div>
-                })}
+            <table className="w-[80%] md:mx-36 border-collapse border overflow-x-auto  border-gray-200">
+                    <thead>
+                        <tr className="bg-[#506c73] text-white text-[18px] h-[50px] font-normal">
+                            <th className="px-4 py-2 text-white text-[18px] font-normal text-left ">Rank</th>
+                            <th className="pl-4 py-2 text-white text-[18px] font-normal max-w-[70px] text-left"></th>
+                            <th className="px-4 py-2 text-white text-[18px] font-normal max-w-[270px] text-left">University-Name</th>
+                            <th className="px-4 py-2 text-white text-[18px] font-normal  max-w-[200px]: text-left">Courses</th>
+                            <th className="px-4 py-2  text-white text-[18px] font-normal max-w-[120px]: text-left">College-Details</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+
+                            listing.map((item, index) => {
+                                const backgroundcolor = (items) => {
+                                    if ((items) % 2 === 0) {
+                                        return 'bg-gray-100'
+                                    }
+                                    else {
+                                        return 'bg-white'
+                                    }
+                                }
+                                return <tr className={`h-[100px] ${backgroundcolor(index + 1)} `} key={item._id} >
+                                    <td className="px-4 py-2 ">#{index + 1}</td>
+                                    <td className="pl-4 py-2 max-w-[70px]"><div className='flex justify-center items-center h-[50px] ml-3 w-[50px] rounded-[50%]  border '>
+                                        <img className='h-[33px] w-[33px]  rounded-[50%] overflow-hidden ' src={item.image} alt="image" />
+                                    </div></td>
+
+                                    <td className="pr-4 py-2  max-w-[290px] min-w-[250px] text-sm md:text-[17px]  font-[550] text-[#84c3d3] "><Link href={'/mainpages/viewUniversity/' + item._id}> {item.collegeName} <h1 className='text-sm font-normal text-gray-600 md:overflow-auto overflow-hidden'>{item.collegeAddress} </h1> </Link></td>
+
+                                    <td className="px-4 py-2 max-w-[200px] text-gray-500 mt-3 md:text-[18px] text-[17px] ">{item.courses}</td>
+                                    <td className="px-4 py-2 text-lg text-gray-500 max-w-[120px] ">{item.collegeDetail}</td>
+                                </tr>
+                            })}
+                    </tbody>
+                </table>
         </div>
     )
 }

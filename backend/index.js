@@ -7,7 +7,7 @@ const UserRouter = require('./routers/user')
 const AdminRouter = require('./routers/admin')
 const AddcollegeRouter = require('./routers/addcollege')
 const AdduniversityRouter = require('./routers/adduniversity')
-const ReviewandratingRouter= require("./routers/Review")
+const ReviewandratingRouter= require("./routers/review")
 const userRouter = require('./routers/userRouter');
 const passRouter = require('./routers/passRouter');
 const upbordRouter = require('./routers/addupBord')
@@ -15,7 +15,7 @@ const cbsebordRouter = require('./routers/addcbseBord')
 const icsebordRouter = require('./routers/addicseBord')
 
 
-app.use(express.json())
+app.use(express.json());
 app.use(cors({
     origin: ['http://localhost:3000'],
 }))

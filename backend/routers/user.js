@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../models/user');
 const bcrypt = require('bcryptjs'); // Password hashing ke liye add kiya
-
 // Add User
 router.post('/add', (req, res) => {
     console.log(req.body);

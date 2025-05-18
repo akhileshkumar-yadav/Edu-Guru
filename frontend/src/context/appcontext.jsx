@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter } from "next/navigation";
 import { createContext, useState, useContext, useEffect } from "react";
 
@@ -9,14 +11,17 @@ export const AppProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
 
-  // Ensuring localStorage logic runs only on the client side
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      setCurrentUser(user);
-      setLoggedIn(true);
+    // Run this only in the browser
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        const user = JSON.parse(storedUser);
+        setCurrentUser(user);
+        setLoggedIn(true);
+      }
     }
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
 
   const logout = () => {
     setCurrentUser(null);

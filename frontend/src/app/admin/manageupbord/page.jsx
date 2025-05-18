@@ -8,7 +8,7 @@ const ManageUser = () => {
     const [userList, setUserList] = useState([])
 
     const fetchUserList = () => {
-        axios.get('http://localhost:5000/admin/addcbseBord/getall')
+        axios.get('http://localhost:5000/admin/addupBord/getall')
 
             .then((res) => {
                 console.log(res.status);
@@ -71,7 +71,7 @@ const ManageUser = () => {
                                         </button>
                                     </td>
                                     <td  className='p-2 border border-violet-700'>
-                                        <Link href={'/admin/updateCBSEbord/' + user._id} className='bg-yellow-500 text-white px-4 py-2 rounded-lg'>
+                                        <Link href={'/admin/updateUpbord/' + user._id} className='bg-yellow-500 text-white px-4 py-2 rounded-lg'>
                                             Update
                                         </Link>
                                     </td>

@@ -138,7 +138,7 @@ const ViewUniversity = () => {
                 <div className={classess.div1}>
                     <div className='flex ml-[10%] mt-[5%]  text-white'>
                         <div className='flex'>
-                            <img className='h-[80px] w-[90px] rounded-md mr-5' src={universityList.image} alt="logo" />
+                            <img className='h-[80px] w-[90px] rounded-md mr-5' src={universityList.Schoolimage} alt="logo" />
                         </div>
                         <div className='flex-col '>
                             <h1 className=' text-3xl uppercase font-semibold'>{universityList.universityName}</h1>

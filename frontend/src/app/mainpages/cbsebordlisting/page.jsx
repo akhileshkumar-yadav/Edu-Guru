@@ -9,7 +9,7 @@ import { TypeAnimation } from 'react-type-animation';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const CBSE= () => {
+const CBSE = () => {
   const [inputValue, setInputValue] = useState('');
   const [listing, setListing] = useState([]);
   const [filteredListing, setFilteredListing] = useState([]);
@@ -25,7 +25,6 @@ const CBSE= () => {
         setListing(result.data);
         setFilteredListing(result.data);
 
-        // Extract unique states
         const uniqueStates = [...new Set(result.data.map(item => item.state))];
         setStates(uniqueStates);
       })
@@ -39,54 +38,54 @@ const CBSE= () => {
     fetchSchools();
   }, []);
 
-  // Filter districts based on selected state
+  // Handle State Change
   const handleStateChange = (event) => {
     const state = event.target.value;
     setSelectedState(state);
     setSelectedDistrict('');
 
-    const filteredDistricts = [
-      ...new Set(listing.filter(item => item.state === state).map(item => item.district))
-    ];
-    setDistricts(filteredDistricts);
-    setFilteredListing(listing.filter(item => item.state === state));
+    const stateFiltered = listing.filter(item => item.state === state);
+    const uniqueDistricts = [...new Set(stateFiltered.map(item => item.district.trim().toLowerCase()))];
+
+    // Preserve original casing
+    const districtNames = uniqueDistricts.map(dist =>
+      stateFiltered.find(item => item.district.trim().toLowerCase() === dist)?.district || dist
+    );
+
+    setDistricts(districtNames);
+    setFilteredListing(stateFiltered);
   };
 
-  // Filter schools based on selected district
+  // Handle District Change
   const handleDistrictChange = (event) => {
-    const district = event.target.value;
-    setSelectedDistrict(district);
-    setFilteredListing(listing.filter(item => item.district === district));
+    const district = event.target.value.trim().toLowerCase();
+    setSelectedDistrict(event.target.value);
+
+    const filtered = listing.filter(item =>
+      item.state === selectedState &&
+      item.district.trim().toLowerCase() === district
+    );
+
+    setFilteredListing(filtered);
   };
 
   // Search functionality
   const applySearch = () => {
     if (inputValue.trim() === '') {
-      console.log('Input field is empty. No filtering applied.');
-      setFilteredListing(listing); // Show full list if empty
+      setFilteredListing(listing);
       return;
     }
 
     const searchText = inputValue.toLowerCase().trim();
-
     const filtered = listing.filter((item) =>
-      item?.SchoolName?.toLowerCase().includes(searchText) // Check for SchoolName
+      item?.SchoolName?.toLowerCase().includes(searchText)
     );
-
-    console.log("Filtered Results:", filtered); // Debugging
     setFilteredListing(filtered);
   };
 
-  // Automatically apply search when typing
   useEffect(() => {
     applySearch();
   }, [inputValue]);
-
-
-  // click karne per search
-  useEffect(() => {
-  }, [inputValue]);
-
 
   return (
     <div className='relative'>
@@ -95,7 +94,8 @@ const CBSE= () => {
         <Slider fade={true} infinite={true} slidesToShow={1} slidesToScroll={1} autoplay={true} speed={700} autoplaySpeed={3000} cssEase="linear">
           <div className='relative'>
             <img className='lg:min-w-[1535px] md:min-w-[600px] md:h-[570px] min-h-[250px]'
-              src="https://media.istockphoto.com/id/1257574456/photo/modern-school-exterior-3d-illustration.jpg?s=612x612&w=0&k=20&c=1vy2zhje52B2LfHXtOC-PJ1OFsu3gjfVwu_SXnTExxw=" alt="School Image" />
+              src="https://media.istockphoto.com/id/1257574456/photo/modern-school-exterior-3d-illustration.jpg?s=612x612&w=0&k=20&c=1vy2zhje52B2LfHXtOC-PJ1OFsu3gjfVwu_SXnTExxw="
+              alt="School Image" />
             <div className='text-white hover:underline absolute bottom-1 right-[100px] lg:right-[300px] md:right-[250px]'>
               <h1 className='hover:text-yellow-500 text-lg w-[350px]'>K.V.S Ayodhya</h1>
             </div>
@@ -137,7 +137,7 @@ const CBSE= () => {
 
       {/* Filters */}
       <div className='md:ml-36 my-3'>
-        <h1 className='text-3xl font-semibold text-sky-900'>UP Board Schools</h1>
+        <h1 className='text-3xl font-semibold text-sky-900'>CBSE Schools</h1>
         <div className='flex text-sky-900 gap-4 mt-4'>
           <select className="p-2 border border-teal-400 hover:border-fuchsia-400 pl-5 pr-5 rounded outline-none" value={selectedState} onChange={handleStateChange}>
             <option value={''}>Select a State</option>
@@ -148,8 +148,8 @@ const CBSE= () => {
 
           <select className="p-2 border border-teal-400 hover:border-fuchsia-400 outline-none pl-5 pr-5 rounded" value={selectedDistrict} onChange={handleDistrictChange} disabled={!districts.length}>
             <option value={''}>Select a District</option>
-            {districts.map((district) => (
-              <option key={district} value={district}>{district}</option>
+            {districts.map((district, index) => (
+              <option key={index} value={district}>{district}</option>
             ))}
           </select>
         </div>
@@ -157,24 +157,30 @@ const CBSE= () => {
 
       {/* School Table */}
       <div className='w-full'>
-        <div className="overflow-x-scroll lg:overflow-x-auto ">
-          <table className="w-[80%] md:mx-36 border-collapse border overflow-x-auto  border-gray-200">
+        <div className="overflow-x-scroll lg:overflow-x-auto">
+          <table className="w-[80%] md:mx-36 border-collapse border overflow-x-auto border-gray-200">
             <thead>
               <tr className="bg-[#506c73] text-white text-[18px] h-[50px] font-normal">
-                <th className="px-4 py-2 text-white text-[18px] font-normal text-left ">Rank</th>
-                <th className="pl-4 py-2 text-white text-[18px] font-normal max-w-[70px] text-left"></th>
-                <th className="px-4 py-2 text-white text-[18px] font-normal max-w-[270px] text-left">School-Name</th>
-                <th className="px-4 py-2 text-white text-[18px] font-normal  max-w-[200px]: text-left">Bord</th>
-                <th className="px-4 py-2  text-white text-[18px] font-normal max-w-[120px]: text-left">State</th>
-
+                <th className="px-4 py-2 text-left">Rank</th>
+                <th className="pl-4 py-2 text-left"></th>
+                <th className="px-4 py-2 text-left">School-Name</th>
+                <th className="px-4 py-2 text-left">Board</th>
+                <th className="px-4 py-2 text-left">District</th>
               </tr>
             </thead>
             <tbody>
               {filteredListing.map((item, index) => (
                 <tr className={`h-[100px] ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`} key={item._id}>
                   <td className="px-4 py-2">#{index + 1}</td>
-                  <td className="pl-4 py-2"><img className='h-[33px] w-[33px] rounded-full' src={item.image} alt="School Logo" /></td>
-                  <td className="pr-4 py-2 text-[#84c3d3] font-semibold"><Link href={'/mainpages/viewUniversity/' + item._id}>{item.SchoolName} <h1 className='text-sm font-normal text-gray-600 md:overflow-auto overflow-hidden'>{item.SchoolAddress} </h1></Link></td>
+                  <td className="pl-4 py-2">
+                    <img className='h-[33px] w-[33px] rounded-full' src={item.image} alt="School Logo" />
+                  </td>
+                  <td className="pr-4 py-2 text-[#84c3d3] font-semibold">
+                    <Link href={`/mainpages/viewUniversity/${item._id}`}>
+                      {item.SchoolName}
+                      <h1 className='text-sm font-normal text-gray-600 md:overflow-auto overflow-hidden'>{item.SchoolAddress}</h1>
+                    </Link>
+                  </td>
                   <td className="px-4 py-2 text-gray-500">{item.SchoolType}</td>
                   <td className="px-4 py-2 text-gray-500">{item.district}</td>
                 </tr>
@@ -182,7 +188,6 @@ const CBSE= () => {
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
   );

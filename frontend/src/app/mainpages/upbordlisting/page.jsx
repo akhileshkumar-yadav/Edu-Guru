@@ -18,14 +18,11 @@ const UPBord = () => {
   const [selectedState, setSelectedState] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
 
-  // Fetch School Data from Backend
   const fetchSchools = () => {
     axios.get('http://localhost:5000/admin/addupBord/getall')
       .then((result) => {
         setListing(result.data);
         setFilteredListing(result.data);
-
-        // Extract unique states
         const uniqueStates = [...new Set(result.data.map(item => item.state))];
         setStates(uniqueStates);
       })
@@ -39,54 +36,50 @@ const UPBord = () => {
     fetchSchools();
   }, []);
 
-  // Filter districts based on selected state
   const handleStateChange = (event) => {
     const state = event.target.value;
     setSelectedState(state);
     setSelectedDistrict('');
 
-    const filteredDistricts = [
-      ...new Set(listing.filter(item => item.state === state).map(item => item.district))
-    ];
-    setDistricts(filteredDistricts);
-    setFilteredListing(listing.filter(item => item.state === state));
+    const stateFiltered = listing.filter(item => item.state === state);
+    const uniqueDistricts = [...new Set(stateFiltered.map(item => item.district.trim().toLowerCase()))];
+
+    const districtNames = uniqueDistricts.map(dist =>
+      stateFiltered.find(item => item.district.trim().toLowerCase() === dist)?.district || dist
+    );
+
+    setDistricts(districtNames);
+    setFilteredListing(stateFiltered);
   };
 
-  // Filter schools based on selected district
   const handleDistrictChange = (event) => {
-    const district = event.target.value;
-    setSelectedDistrict(district);
-    setFilteredListing(listing.filter(item => item.district === district));
+    const district = event.target.value.trim().toLowerCase();
+    setSelectedDistrict(event.target.value);
+
+    const filtered = listing.filter(item =>
+      item.state === selectedState &&
+      item.district.trim().toLowerCase() === district
+    );
+
+    setFilteredListing(filtered);
   };
 
-  // Search functionality
   const applySearch = () => {
     if (inputValue.trim() === '') {
-      console.log('Input field is empty. No filtering applied.');
-      setFilteredListing(listing); // Show full list if empty
+      setFilteredListing(listing);
       return;
     }
 
     const searchText = inputValue.toLowerCase().trim();
-
     const filtered = listing.filter((item) =>
-      item?.SchoolName?.toLowerCase().includes(searchText) // Check for SchoolName
+      item?.SchoolName?.toLowerCase().includes(searchText)
     );
-
-    console.log("Filtered Results:", filtered); // Debugging
     setFilteredListing(filtered);
   };
 
-  // Automatically apply search when typing
   useEffect(() => {
     applySearch();
   }, [inputValue]);
-
-
-  // click karne per search
-  useEffect(() => {
-  }, [inputValue]);
-
 
   return (
     <div className='relative'>
@@ -148,8 +141,8 @@ const UPBord = () => {
 
           <select className="p-2 border border-teal-400 hover:border-fuchsia-400 outline-none pl-5 pr-5 rounded" value={selectedDistrict} onChange={handleDistrictChange} disabled={!districts.length}>
             <option value={''}>Select a District</option>
-            {districts.map((district) => (
-              <option key={district} value={district}>{district}</option>
+            {districts.map((district, index) => (
+              <option key={index} value={district}>{district}</option>
             ))}
           </select>
         </div>
@@ -157,24 +150,32 @@ const UPBord = () => {
 
       {/* School Table */}
       <div className='w-full'>
-        <div className="overflow-x-scroll lg:overflow-x-auto ">
-          <table className="w-[80%] md:mx-36 border-collapse border overflow-x-auto  border-gray-200">
+        <div className="overflow-x-scroll lg:overflow-x-auto">
+          <table className="w-[80%] md:mx-36 border-collapse border overflow-x-auto border-gray-200">
             <thead>
               <tr className="bg-[#506c73] text-white text-[18px] h-[50px] font-normal">
-                <th className="px-4 py-2 text-white text-[18px] font-normal text-left ">Rank</th>
-                <th className="pl-4 py-2 text-white text-[18px] font-normal max-w-[70px] text-left"></th>
-                <th className="px-4 py-2 text-white text-[18px] font-normal max-w-[270px] text-left">School-Name</th>
-                <th className="px-4 py-2 text-white text-[18px] font-normal  max-w-[200px]: text-left">Bord</th>
-                <th className="px-4 py-2  text-white text-[18px] font-normal max-w-[120px]: text-left">State</th>
-
+                <th className="px-4 py-2 text-left">Rank</th>
+                <th className="pl-4 py-2 text-left"></th>
+                <th className="px-4 py-2 text-left">School-Name</th>
+                <th className="px-4 py-2 text-left">Board</th>
+                <th className="px-4 py-2 text-left">District</th>
               </tr>
             </thead>
             <tbody>
               {filteredListing.map((item, index) => (
                 <tr className={`h-[100px] ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`} key={item._id}>
                   <td className="px-4 py-2">#{index + 1}</td>
-                  <td className="pl-4 py-2"><img className='h-[33px] w-[33px] rounded-full' src={item.image} alt="School Logo" /></td>
-                  <td className="pr-4 py-2 text-[#84c3d3] font-semibold"><Link href={'/mainpages/viewUniversity/' + item._id}>{item.SchoolName} <h1 className='text-sm font-normal text-gray-600 md:overflow-auto overflow-hidden'>{item.SchoolAddress} </h1></Link></td>
+                  <td className="pl-4 py-2">
+                    <div className='h-[45px] w-[45px] rounded-full flex border justify-center items-center'>
+                      <img className='h-[33px] w-[33px] rounded-full' src={item.Schoolimage} alt="School Logo" />
+                    </div>
+                  </td>
+                  <td className="pr-4 py-2 text-[#84c3d3] font-semibold">
+                    <Link href={`/mainpages/viewUniversity/${item._id}`}>
+                      {item.SchoolName}
+                      <h1 className='text-sm font-normal text-gray-600 md:overflow-auto overflow-hidden'>{item.SchoolAddress}</h1>
+                    </Link>
+                  </td>
                   <td className="px-4 py-2 text-gray-500">{item.SchoolType}</td>
                   <td className="px-4 py-2 text-gray-500">{item.district}</td>
                 </tr>
@@ -182,7 +183,6 @@ const UPBord = () => {
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
   );
