@@ -11,47 +11,47 @@ const addupBord = () => {
       SchoolAddress: "",
       schoolDetail: "",
       state: "",
-      fee1: "",
-      fee2: "",
-      fee3: "",
-      fee4: "",
-      fee5: "",
-      fee6: "",
-      fee7: "",
-      fee8: "",
-      fee9: "",
-      fee10: "",
-      fee11: "",
-      fee12: "",
       email: "",
       phone: "",
-      Schoolimage: "",
-      Schoolimage1: "",
-      Schoolimage2: "",
-      Schoolimage3: "",
-      Schoolimage4: "",
-      Schoolimage5: "",
-      SchoolType: "",
-      TeacherCount: "",
-      ClassRoom: "",
-      SecPerClass: "",
-      Year: "",
-      event1: "",
-      event2: "",
-      event3: "",
-      event4: "",
-      Sports1: "",
-      Sports2: "",
-      comp1: "",
-      comp2: "",
-      comp3: "",
-      comp4: "",
-      AdvanceFsce1: "",
-      AdvanceFsce2: "",
-      AdvanceFsce3: "",
-      let: "",
-      lng: "",
+      SchoolimageLogo: "",
+      Gallaryimage1: "",
+      Gallaryimage2: "",
+      Gallaryimage3: "",
+      Gallaryimage4: "",
+      Gallaryimage5: "",
+      parentSay1: "",
+      parentName1: "",
+      parentImage1: "",
+      studentName1: "",
+      studentClass1: "",
+      parentSay2: "",
+      parentName2: "",
+      parentImage2: "",
+      studentName2: "",
+      studentClass2: "",
+      parentSay3: "",
+      parentName3: "",
+      parentImage3: "",
+      studentName3: "",
+      studentClass3: "",
+      parentSay4: "",
+      parentName4: "",
+      parentImage4: "",
+      studentName4: "",
+      studentClass4: "",
       district: "",
+      head1: "",
+      head2: "",
+      info1: "",
+      info2: "",
+      Facilities1: "",
+      FacilitiesImage1: "",
+      Facilities2: "",
+      FacilitiesImage2: "",
+      Facilities3: "",
+      FacilitiesImage3: "",
+      Facilities4: "",
+      FacilitiesImage4: "",
     },
     onSubmit: (values, { resetForm }) => {
       console.log(values);
@@ -137,162 +137,6 @@ const addupBord = () => {
             />
           </div>
           <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee">
-              fee1 :
-            </label>
-            <input
-              type="text"
-              id="fee1"
-              name="fee1"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee1}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee">
-              fee2 :
-            </label>
-            <input
-              type="text"
-              id="fee2"
-              name="fee2"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee2}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee3">
-              fee3 :
-            </label>
-            <input
-              type="text"
-              id="fee3"
-              name="fee3"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee3}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee4">
-              fee4 :
-            </label>
-            <input
-              type="text"
-              id="fee4"
-              name="fee4"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee4}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee5">
-              fee5 :
-            </label>
-            <input
-              type="text"
-              id="fee5"
-              name="fee5"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee5}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee6">
-              fee6 :
-            </label>
-            <input
-              type="text"
-              id="fee6"
-              name="fee6"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee6}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee7">
-              fee7 :
-            </label>
-            <input
-              type="text"
-              id="fee7"
-              name="fee7"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee7}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee8">
-              fee8 :
-            </label>
-            <input
-              type="text"
-              id="fee8"
-              name="fee8"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee8}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee9">
-              fee9 :
-            </label>
-            <input
-              type="text"
-              id="fee9"
-              name="fee9"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee9}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee10">
-              fee10 :
-            </label>
-            <input
-              type="text"
-              id="fee10"
-              name="fee10"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee10}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee11">
-              fee11 :
-            </label>
-            <input
-              type="text"
-              id="fee11"
-              name="fee11"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee11}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-12 font-semibold text-xl" htmlFor="fee12">
-              fee12 :
-            </label>
-            <input
-              type="text"
-              id="fee12"
-              name="fee12"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.fee12}
-              className="w-[85%] border-dotted border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
             <label className="pr-5 font-semibold text-xl" htmlFor="cutoff">
               email:
             </label>
@@ -319,15 +163,18 @@ const addupBord = () => {
             />
           </div>
           <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="Schoolimage">
-              Image:
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="SchoolimageLogo"
+            >
+              SchoolimageLogo:
             </label>
             <input
               type="text"
-              id="Schoolimage"
-              name="Schoolimage"
+              id="SchoolimageLogo"
+              name="SchoolimageLogo"
               onChange={addcollege.handleChange}
-              value={addcollege.values.Schoolimage}
+              value={addcollege.values.SchoolimageLogo}
               className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
@@ -336,30 +183,30 @@ const addupBord = () => {
               className="pr-5 font-semibold text-xl"
               htmlFor="Schoolimage1"
             >
-              Image1:
+              Gallaryimage1:
             </label>
             <input
               type="text"
-              id="Schoolimage1"
-              name="Schoolimage1"
+              id="Gallaryimage1"
+              name="Gallaryimage1"
               onChange={addcollege.handleChange}
-              value={addcollege.values.Schoolimage1}
+              value={addcollege.values.Gallaryimage1}
               className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
           <div>
             <label
               className="pr-5 font-semibold text-xl"
-              htmlFor="Schoolimage2"
+              htmlFor="Gallaryimage2"
             >
               Image2:
             </label>
             <input
               type="text"
-              id="Schoolimage2"
-              name="Schoolimage2"
+              id="Gallaryimage2"
+              name="Gallaryimage2"
               onChange={addcollege.handleChange}
-              value={addcollege.values.Schoolimage2}
+              value={addcollege.values.Gallaryimage2}
               className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
@@ -375,310 +222,336 @@ const addupBord = () => {
               id="Schoolimage3"
               name="Schoolimage3"
               onChange={addcollege.handleChange}
-              value={addcollege.values.Schoolimage3}
+              value={addcollege.values.Gallaryimage3}
               className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
           <div>
             <label
               className="pr-5 font-semibold text-xl"
-              htmlFor="Schoolimage4"
+              htmlFor="Gallaryimage4"
             >
               Image4:
             </label>
             <input
               type="text"
-              id="Schoolimage4"
-              name="Schoolimage4"
+              id="Gallaryimage4"
+              name="Gallaryimage4"
               onChange={addcollege.handleChange}
-              value={addcollege.values.Schoolimage4}
+              value={addcollege.values.Gallaryimage4}
               className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
           <div>
             <label
               className="pr-5 font-semibold text-xl"
-              htmlFor="Schoolimage5"
+              htmlFor="Gallaryimage5"
             >
               Image5:
             </label>
             <input
               type="text"
-              id="Schoolimage5"
-              name="Schoolimage5"
+              id="Gallaryimage5"
+              name="Gallaryimage5"
               onChange={addcollege.handleChange}
-              value={addcollege.values.Schoolimage5}
+              value={addcollege.values.Gallaryimage5}
               className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
           <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="SchoolType">
-              SchoolType :
+            <label className="pr-5 font-semibold text-xl" htmlFor="parentSay1">
+              parentSay1:
             </label>
             <input
               type="text"
-              id="SchoolType"
-              name="SchoolType"
+              id="parentSay1"
+              name="parentSay1"
               onChange={addcollege.handleChange}
-              value={addcollege.values.SchoolType}
+              value={addcollege.values.parentSay1}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="parentName1">
+              parentName1:
+            </label>
+            <input
+              type="text"
+              id="parentName1"
+              name="parentName1"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.parentName1}
               className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
           <div>
             <label
               className="pr-5 font-semibold text-xl"
-              htmlFor="TeacherCount"
+              htmlFor="parentImage1"
             >
-              TeacherCount :
+              parentImage1:
             </label>
             <input
               type="text"
-              id="TeacherCount"
-              name="TeacherCount"
+              id="parentImage1"
+              name="parentImage1"
               onChange={addcollege.handleChange}
-              value={addcollege.values.TeacherCount}
-              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="ClassRoom">
-              ClassRoom :
-            </label>
-            <input
-              type="text"
-              id="ClassRoom"
-              name="ClassRoom"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.ClassRoom}
-              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="SecPerClass">
-              SecPerClass :
-            </label>
-            <input
-              type="text"
-              id="SecPerClass"
-              name="SecPerClass"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.SecPerClass}
-              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="Year">
-              Year :
-            </label>
-            <input
-              type="text"
-              id="Year"
-              name="Year"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.Year}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="event1">
-              event1 :
-            </label>
-            <input
-              type="text"
-              id="event1"
-              name="event1"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.event1}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="event2">
-              event2 :
-            </label>
-            <input
-              type="text"
-              id="event2"
-              name="event2"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.event2}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="event3">
-              event3 :
-            </label>
-            <input
-              type="text"
-              id="event3"
-              name="event3"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.event3}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="event4">
-              event4 :
-            </label>
-            <input
-              type="text"
-              id="event4"
-              name="event4"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.event4}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="Sports1">
-              Sports1 :
-            </label>
-            <input
-              type="text"
-              id="Sports1"
-              name="Sports1"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.Sports1}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="Sports2">
-              Sports2 :
-            </label>
-            <input
-              type="text"
-              id="Sports2"
-              name="Sports2"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.Sports2}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="Sports2">
-              comp1:
-            </label>
-            <input
-              type="text"
-              id="comp1"
-              name="comp1"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.comp1}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="comp2">
-              comp2 :
-            </label>
-            <input
-              type="text"
-              id="comp2"
-              name="comp2"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.comp2}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="comp3">
-              comp3 :
-            </label>
-            <input
-              type="text"
-              id="comp3"
-              name="comp3"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.comp3}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="comp4">
-              comp4 :
-            </label>
-            <input
-              type="text"
-              id="comp4"
-              name="comp4"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.comp4}
-              className="w-[85%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
-            />
-          </div>
-          <div>
-            <label
-              className="pr-5 font-semibold text-xl"
-              htmlFor="AdvanceFsce1"
-            >
-              AdvanceFsce1:
-            </label>
-            <input
-              type="text"
-              id="AdvanceFsce1"
-              name="AdvanceFsce1"
-              onChange={addcollege.handleChange}
-              value={addcollege.values.AdvanceFsce1}
+              value={addcollege.values.parentImage1}
               className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
           <div>
             <label
               className="pr-5 font-semibold text-xl"
-              htmlFor="AdvanceFsce2"
+              htmlFor="studentName1"
             >
-              AdvanceFsce2:
+              studentName1:
             </label>
             <input
               type="text"
-              id="AdvanceFsce2"
-              name="AdvanceFsce2"
+              id="studentName1"
+              name="studentName1"
               onChange={addcollege.handleChange}
-              value={addcollege.values.AdvanceFsce2}
+              value={addcollege.values.studentName1}
               className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
           <div>
             <label
               className="pr-5 font-semibold text-xl"
-              htmlFor="AdvanceFsce3"
+              htmlFor="studentClass1"
             >
-              AdvanceFsce3:
+              studentClass1:
             </label>
             <input
               type="text"
-              id="AdvanceFsce3"
-              name="AdvanceFsce3"
+              id="studentClass1"
+              name="studentClass1"
               onChange={addcollege.handleChange}
-              value={addcollege.values.AdvanceFsce3}
+              value={addcollege.values.studentClass1}
               className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
           <div>
-            <label className="pr-5 font-semibold text-xl" htmlFor="let">
-              let:
+            <label className="pr-5 font-semibold text-xl" htmlFor="parentSay2">
+              parentSay2:
             </label>
             <input
               type="text"
-              id="let"
-              name="let"
+              id="parentSay2"
+              name="parentSay2"
               onChange={addcollege.handleChange}
-              value={addcollege.values.let}
-              className="w-[35%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+              value={addcollege.values.parentSay2}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
-            <label className="pr-5 font-semibold text-xl" htmlFor="lng">
-              lng:
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="parentName2">
+              parentName2:
             </label>
             <input
               type="text"
-              id="lng"
-              name="lng"
+              id="parentName2"
+              name="parentName2"
               onChange={addcollege.handleChange}
-              value={addcollege.values.lng}
-              className="w-[35%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+              value={addcollege.values.parentName2}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="parentImage2"
+            >
+              parentImage2:
+            </label>
+            <input
+              type="text"
+              id="parentImage2"
+              name="parentImage2"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.parentImage2}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="studentName2"
+            >
+              studentName2:
+            </label>
+            <input
+              type="text"
+              id="studentName2"
+              name="studentName2"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.studentName2}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="studentClass2"
+            >
+              studentClass2:
+            </label>
+            <input
+              type="text"
+              id="studentClass2"
+              name="studentClass2"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.studentClass2}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="parentSay3">
+              parentSay3:
+            </label>
+            <input
+              type="text"
+              id="parentSay3"
+              name="parentSay3"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.parentSay3}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="parentName3">
+              parentName3:
+            </label>
+            <input
+              type="text"
+              id="parentName3"
+              name="parentName3"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.parentName3}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="parentImage3"
+            >
+              parentImage3:
+            </label>
+            <input
+              type="text"
+              id="parentImage3"
+              name="parentImage3"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.parentImage3}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="studentName3"
+            >
+              studentName3:
+            </label>
+            <input
+              type="text"
+              id="studentName3"
+              name="studentName3"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.studentName3}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="studentClass3"
+            >
+              studentClass3:
+            </label>
+            <input
+              type="text"
+              id="studentClass3"
+              name="studentClass3"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.studentClass3}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="parentSay4">
+              parentSay4:
+            </label>
+            <input
+              type="text"
+              id="parentSay4"
+              name="parentSay4"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.parentSay4}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="parentName">
+              parentName4:
+            </label>
+            <input
+              type="text"
+              id="parentName4"
+              name="parentName4"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.parentName4}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="parentImage4"
+            >
+              parentImage4:
+            </label>
+            <input
+              type="text"
+              id="parentImage4"
+              name="parentImage4"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.parentImage4}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="studentName4"
+            >
+              studentName4:
+            </label>
+            <input
+              type="text"
+              id="studentName4"
+              name="studentName4"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.studentName4}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="studentClass4"
+            >
+              studentClass4:
+            </label>
+            <input
+              type="text"
+              id="studentClass4"
+              name="studentClass4"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.studentClass4}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
           <div>
@@ -694,7 +567,175 @@ const addupBord = () => {
               className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
             />
           </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="head1">
+              district:
+            </label>
+            <input
+              type="text"
+              id="head1"
+              name="head1"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.head1}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="head2">
+              district:
+            </label>
+            <input
+              type="text"
+              id="head2"
+              name="head2"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.head2}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="info1">
+              district:
+            </label>
+            <input
+              type="text"
+              id="info1"
+              name="info1"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.info1}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
           {/* add university link */}
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="info2">
+              district:
+            </label>
+            <input
+              type="text"
+              id="info2"
+              name="info2"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.info2}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="Facilities1">
+              Facilities1:
+            </label>
+            <input
+              type="text"
+              id="Facilities1"
+              name="Facilities1"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.Facilities1}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="Facilities2">
+              Facilities2:
+            </label>
+            <input
+              type="text"
+              id="Facilities2"
+              name="Facilities2"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.Facilities2}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="Facilities3">
+              Facilities3:
+            </label>
+            <input
+              type="text"
+              id="Facilities3"
+              name="Facilities3"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.Facilities3}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label className="pr-5 font-semibold text-xl" htmlFor="Facilities4">
+              Facilities4:
+            </label>
+            <input
+              type="text"
+              id="Facilities4"
+              name="Facilities4"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.Facilities4}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="FacilitiesImage1"
+            >
+              FacilitiesImage1:
+            </label>
+            <input
+              type="text"
+              id="FacilitiesImage1"
+              name="FacilitiesImage1"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.FacilitiesImage1}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="FacilitiesImage2"
+            >
+              FacilitiesImage2:
+            </label>
+            <input
+              type="text"
+              id="FacilitiesImage2"
+              name="FacilitiesImage2"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.FacilitiesImage2}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="FacilitiesImage3"
+            >
+              FacilitiesImage3:
+            </label>
+            <input
+              type="text"
+              id="FacilitiesImage3"
+              name="FacilitiesImage3"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.FacilitiesImage3}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
+          <div>
+            <label
+              className="pr-5 font-semibold text-xl"
+              htmlFor="FacilitiesImage4"
+            >
+              FacilitiesImage4:
+            </label>
+            <input
+              type="text"
+              id="FacilitiesImage4"
+              name="FacilitiesImage4"
+              onChange={addcollege.handleChange}
+              value={addcollege.values.FacilitiesImage4}
+              className="w-[75%]  border-dashed border-b-2 outline-none border-b-gray-600 mb-4"
+            />
+          </div>
           <div className="flex w-[100%] justify-center items-center">
             <button
               type="submit"

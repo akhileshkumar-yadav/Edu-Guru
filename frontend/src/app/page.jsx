@@ -17,6 +17,25 @@ import "slick-carousel/slick/slick-theme.css";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dynamic from "next/dynamic";
+import { ChevronRight } from "lucide-react";
+
+const courses = [
+  "BE/B.Tech",
+  "BA",
+  "B.Sc",
+  "MBA/PGDM",
+  "M.Sc",
+  "ME/M.Tech",
+  "MA",
+  "Polytechnic",
+  "BE/B.Tech Lateral",
+  "M.Phil/Ph.D in Science",
+  "B.Com",
+  "MD",
+  "BBA/BMS",
+  "M.Phil/Ph.D in Engineering",
+  "M.Phil/Ph.D in Arts",
+];
 
 const page = () => {
   const [inputValue, setInputValue] = useState("");
@@ -452,6 +471,24 @@ const page = () => {
         </div>
 
         <hr className=" mt-4" />
+        <div className="flex flex-col md:ml-36 md:w-[80%]  mt-4 p-4 bg-gray-50">
+          <h2 className="text-3xl font-bold mb-4">Top Courses</h2>
+          <div className="flex flex-wrap gap-3 r">
+            {courses.map((course, index) => (
+              <button
+                key={index}
+                className="flex items-start gap-2 px-4 py-2 bg-white text-gray-700 rounded-full shadow-sm hover:bg-gray-100 focus:outline-none border border-gray-300"
+              >
+                {course}
+                <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-100 text-gray-600">
+                  <ChevronRight size={14} />
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <hr className=" mt-4" />
         <div className="md:ml-36 hover:shadow-indigo-300 shadow-md  mt-4 border-2 hover:border-indigo-300 md:w-[80%]">
           <AboutUs />
         </div>
@@ -574,47 +611,6 @@ const page = () => {
           {/* End Grid */}
         </div>
       </div>
-      {/* End Icon Blocks */}
-      {/* btn for location */}
-
-      {/* <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      {!isReplaced ? (
-        <button
-          onClick={handleButtonClick}
-          style={{
-            padding: '20px 20px',
-            fontSize: '16px',
-            backgroundColor: '#0070f3',
-            color: 'black',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-
-          }}
-        >
-         <FontAwesomeIcon icon={faLocationDot} />
-         
-        </button>
-      ) : (
-        <div
-          style={{
-            marginTop: '20px',
-            padding: '15px',
-            border: '1px solid #ccc',
-            borderRadius: '5px',
-            backgroundColor: '#f9f9f9',
-            // position:'relative'
-          }}
-        > 
-        <div className='relative'>
-          <MapComponent  />
-          
-           <button onClick={handleButtonClick} className='absolute -right-1 -top-3 text-red-400 text-2xl font-semibold'>X</button>
-           </div> 
-        </div>
-      )}
-    </div> */}
-
       <Footer />
     </div>
   );

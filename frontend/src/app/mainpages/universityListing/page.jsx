@@ -11,6 +11,25 @@ import { FiChevronRight } from "react-icons/fi";
 import { TypeAnimation } from "react-type-animation";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ChevronRight } from "lucide-react";
+
+const courses = [
+  "BE/B.Tech",
+  "BA",
+  "B.Sc",
+  "MBA/PGDM",
+  "M.Sc",
+  "ME/M.Tech",
+  "MA",
+  "Polytechnic",
+  "BE/B.Tech Lateral",
+  "M.Phil/Ph.D in Science",
+  "B.Com",
+  "MD",
+  "BBA/BMS",
+  "M.Phil/Ph.D in Engineering",
+  "M.Phil/Ph.D in Arts",
+];
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -396,7 +415,7 @@ const UniversityListing = () => {
       {/*  card */}
       <div className="md:mx-36  lg:max-w-[80%]">
         <h1 className="text-3xl my-3  text-gray-900 font-semibold md:mx-7">
-          Top Five University
+          Top University
         </h1>
       </div>
       <div className="my-10 w-[80%] m-auto">
@@ -466,10 +485,87 @@ const UniversityListing = () => {
           </Slider>
         </div>
       </div>
-      <hr className="my-5" />
-      <div className="my-10 w-[80%] m-auto">
-
+      <hr className=" mt-4" />
+      <div className="flex flex-col md:ml-36 md:w-[80%]  mt-4 p-4 bg-gray-50">
+        <h2 className="text-3xl font-bold mb-4">Top Courses</h2>
+        <div className="flex flex-wrap gap-3 r">
+          {courses.map((course, index) => (
+            <button
+              key={index}
+              className="flex items-start gap-2 px-4 py-2 bg-white text-gray-700 rounded-full shadow-sm hover:bg-gray-100 focus:outline-none border border-gray-300"
+            >
+              {course}
+              <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-100 text-gray-600">
+                <ChevronRight size={14} />
+              </div>
+            </button>
+          ))}
+        </div>
       </div>
+      <hr className="p-4" />
+      <div className="md:ml-36 p-4 ">
+        <h1 className="text-3xl font-semibold text-gray-700">All Schools</h1>
+      </div>
+      <div className="md:mx-40 overflow-hidden my-5">
+  <div className="md:flex mb-4 flex-wrap justify-start items-center">
+    <div className="h-[180px] flex-col relative md:w-[380px] w-[360px] rounded-md bg-gradient-to-b from-indigo-100 hover:shadow-indigo-300 shadow-md hover:border-indigo-300 border-gray-300 border-2">
+      <div className="flex">
+        <div className="w-full h-[100px] ">
+          <h1 className="ml-14 mt-4 text-lg md:text-xl hover:text-orange-500 font-semibold text-gray-700">
+            UP-Bord schools
+          </h1>
+          <p className="ml-14 pt-2 text-gray-400 text-sm font-medium">
+            UP-Bord school ranked based on real data
+          </p>
+        </div>
+      </div>
+      <Link className="absolute bottom-4 left-5 flex items-center" href="/mainpages/upbordlisting">
+        <p className="ml-16 mt-4 flex items-center text-gray-500 hover:text-blue-600 group">
+          Top ranked Up-Bord Schools
+          <SlArrowRight className="ml-2 text-gray-900 group-hover:translate-x-1 transition-transform duration-300 hover:text-blue-600 text-[12px] font-extrabold" />
+        </p>
+      </Link>
+    </div>
+
+    <div className="h-[180px] flex-col relative md:w-[380px] md:ml-4 w-[360px] rounded-md bg-gradient-to-b from-indigo-100 hover:shadow-indigo-300 shadow-md hover:border-indigo-300 border-gray-300 border-2">
+      <div className="flex">
+        <div className="w-full h-[100px] ">
+          <h1 className="ml-14 mt-4 text-lg md:text-xl hover:text-orange-500 font-semibold text-gray-700">
+            CBSC-Bord Schools
+          </h1>
+          <p className="ml-14 pt-2 text-gray-400 text -sm font-medium">
+            UP-CBSE school ranked based on real data
+          </p>
+        </div>
+      </div>
+      <Link className="absolute bottom-4 left-5 flex items-center" href="/mainpages/cbsebordlisting">
+        <p className="ml-16 mt-4 flex items-center text-gray-500 hover:text-blue-600 group">
+          Top ranked CBSC-Bord Schools
+          <SlArrowRight className="ml-2 text-gray-900 group-hover:translate-x-1 transition-transform duration-300 hover:text-blue-600 text-[12px] font-extrabold" />
+        </p>
+      </Link>
+    </div>
+
+    <div className="h-[180px] flex-col relative md:w-[380px] md:ml-4 w-[360px] rounded-md bg-gradient-to-b from-indigo-100 hover:shadow-indigo-300 shadow-md hover:border-indigo-300 border-gray-300 border-2">
+      <div className="flex">
+        <div className="w-full h-[100px] ">
+          <h1 className="ml-14 mt-4 text-lg md:text-xl hover:text-orange-500 font-semibold text-gray-700">
+            ICSE-Bord School
+          </h1>
+          <p className="ml-14 pt-2 text-gray-400 text-sm font-medium">
+            ICSE-Bord school ranked based on real data
+          </p>
+        </div>
+      </div>
+      <Link className="absolute bottom-4 left-5 flex items-center" href="/mainpages/icsebordlisting">
+        <p className="ml-16 mt-4 flex items-center text-gray-500 hover:text-blue-600 group">
+          Top ranked ICSE-Bord Schools
+          <SlArrowRight className="ml-2 text-gray-900 group-hover:translate-x-1 transition-transform duration-300 hover:text-blue-600 text-[12px] font-extrabold" />
+        </p>
+      </Link>
+    </div>
+  </div>
+</div>
     </div>
   );
 };

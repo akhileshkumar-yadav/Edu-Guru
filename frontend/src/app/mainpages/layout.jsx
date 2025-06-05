@@ -1,10 +1,9 @@
-'use client'
+"use client";
 // import "./globals.css";
-import Footer from "../footer"
+import Footer from "../footer";
 import { Toaster } from "react-hot-toast";
 import Navbar from "../navbar";
 import { AppProvider } from "../../context/appcontext";
-
 
 export default function RootLayout({ children }) {
   return (
@@ -23,11 +22,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-         <AppProvider>
-        <Navbar />  
-        <Toaster position="top-right " />
-        {children}
-        <Footer />
+        <AppProvider>
+          <Navbar />
+          <Toaster position="top-right " />
+          {children}
+          <Footer />
         </AppProvider>
       </body>
     </html>

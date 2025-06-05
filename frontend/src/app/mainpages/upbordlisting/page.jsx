@@ -157,8 +157,8 @@ const UPBord = () => {
                 <th className="px-4 py-2 text-left">Rank</th>
                 <th className="pl-4 py-2 text-left"></th>
                 <th className="px-4 py-2 text-left">School-Name</th>
-                <th className="px-4 py-2 text-left">Board</th>
-                <th className="px-4 py-2 text-left">District</th>
+                <th className="px-4 py-2 text-center">School-Detail</th>
+                <th className="px-4 py-2 text-center">District</th>
               </tr>
             </thead>
             <tbody>
@@ -170,14 +170,14 @@ const UPBord = () => {
                       <img className='h-[33px] w-[33px] rounded-full' src={item.Schoolimage} alt="School Logo" />
                     </div>
                   </td>
-                  <td className="pr-4 py-2 text-[#84c3d3] font-semibold">
-                    <Link href={`/mainpages/viewUniversity/${item._id}`}>
+                  <td className="py-2 text-[#84c3d3] w-[30%] font-semibold">
+                    <Link href={`/mainpages/viewsUpbord/${item._id}`}>
                       {item.SchoolName}
                       <h1 className='text-sm font-normal text-gray-600 md:overflow-auto overflow-hidden'>{item.SchoolAddress}</h1>
                     </Link>
                   </td>
-                  <td className="px-4 py-2 text-gray-500">{item.SchoolType}</td>
-                  <td className="px-4 py-2 text-gray-500">{item.district}</td>
+                  <td className="px-4 py-2 w-[30%] text-gray-500">{item.schoolDetail}</td>
+                  <td className="px-4 py-2 w-[20%] text-center text-gray-500">{item.district}</td>
                 </tr>
               ))}
             </tbody>

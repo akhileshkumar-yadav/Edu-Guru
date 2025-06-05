@@ -61,7 +61,7 @@ router.get("/getbycollege/:id", (req, res) => {
 });
 
 // ✅ GET: Get reviews by school
-router.get("/getbyschool/:id", (req, res) => {
+router.get("/getbyupBord/:id", (req, res) => {
   Model.find({ college: req.params.id })
     .populate('user', 'name email avatar')
     .then((result) => res.json(result))
